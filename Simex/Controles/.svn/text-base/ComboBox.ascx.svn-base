@@ -1,0 +1,6 @@
+﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="ComboBox.ascx.vb" Inherits="UserControls.ListBox" %>
+<asp:DropDownList ID="DropDownList1" runat="server">
+</asp:DropDownList>
+<asp:Label ID="lblMensaje" runat="server" ForeColor="Red" Font-Names="Calibri"></asp:Label>
+
+

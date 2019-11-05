@@ -1,0 +1,8 @@
+﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="TextBox.ascx.vb" Inherits="UserControls.WebUserControl1" %>
+<asp:TextBox ID="TextBox1" runat="server" CausesValidation="True" 
+    MaxLength="10"></asp:TextBox>
+<asp:Label ID="lblMensaje" runat="server" ForeColor="Red" Font-Names="Calibri"></asp:Label>
+
+
+
+

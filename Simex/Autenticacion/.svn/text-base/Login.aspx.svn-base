@@ -1,0 +1,21 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Login.aspx.vb" Inherits="UserControls.Login" %>
+
+
+<form id="form1" runat="server">
+
+<br />
+
+<asp:Login ID="Login12" runat="server" FailureText="Inicio de sesión no satisfactorio, Favor intentelo de nuevo" 
+    LoginButtonText="Ingresar" 
+    PasswordRequiredErrorMessage="Password es requerido." 
+    RememberMeText="Recordar mis datos." 
+    UserNameRequiredErrorMessage="Nombre de Usuario Requerido.">
+</asp:Login>
+
+<asp:Button ID="btnConsultaPublica" runat="server" 
+    Text="Consulta Pública de Expedientes" />
+
+<asp:Button ID="btnVerPDF" runat="server" 
+    Text="Mostrar" />
+
+</form>

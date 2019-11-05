@@ -1,0 +1,175 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="SubMenu.master.vb" Inherits="smx.SubMenu" MasterPageFile="Site.master" %>
+<%@ MasterType VirtualPath="~/Site.Master"%>
+    
+<%@ Register src="Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+    
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+    
+<asp:Content ID="Content1" runat="server" 
+    contentplaceholderid="ContentPlaceHolder1">
+    <div align="left" style="border: 1px solid #E8E8E8; width: 200px; position: absolute; top: 120px; left: 8px; height: 83%;">
+        <asp:Panel runat="server" Width="157px">
+            <div lang="es-hn" style="padding: 1px 1px 5px 1px; margin: 5px; width: 185px;">
+                <asp:TextBox ID="txtBuscarExp" runat="server" BorderColor="#3399FF" BorderStyle="Solid" BorderWidth="1px" Height="25px" MaxLength="16" Width="150px" Columns="15" ToolTip="Escriba el número de expediente que desea buscar."></asp:TextBox>
+                <asp:ImageButton ID="btnBuscar" runat="server" BackColor="#99CCFF" BorderColor="#3399FF" BorderStyle="Solid" BorderWidth="1px" Height="26px" ImageAlign="Top" ImageUrl="~/Imagenes/Buscar.png" Width="26px" EnableViewState="False" />
+            </div>
+            <telerik:RadMenu ID="RadMenu1" Runat="server" Flow="Vertical" Skin="Glow">
+            </telerik:RadMenu>
+            <br />
+        </asp:Panel>
+    </div>
+    <div class="DD">
+    <div style="position: absolute; top: 124px; left: 214px; height: 152px; width: 967px;">
+        <br />
+    <div style="position: absolute; top: 8px; left: 7px; width: 516px; height: 120px;">
+    
+        <table style="width: 99%;">
+            <tr>
+                <td class="auto-style136">
+    <asp:Label ID="Label9" runat="server" Text="Número de Expediente"></asp:Label>
+                </td>
+                <td class="auto-style70">
+                <uc1:TextBox ID="txtCodigo" runat="server" Align="Izquierda" 
+                    Apariencia="SingleText" FieldName="id" Habilitado="False" Int="False" 
+                    SoloLectura="True" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style137">
+    
+    <asp:Label ID="Label1" runat="server" Text="Servicio"></asp:Label>
+                </td>
+                <td class="auto-style72">
+    <uc1:TextBox ID="txtServicio" runat="server" Apariencia="SingleText" 
+     Habilitado="False" Int="True" FieldName="NombreServicio" Align="Izquierda" 
+            SoloLectura="True" width="80" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136">
+    <asp:Label ID="Label3" runat="server" Text="Encargado o Responsable"></asp:Label>
+
+                </td>
+                <td class="auto-style70">
+
+    <uc1:TextBox ID="txtEncargadoResponsable" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="Responsable" Align="Izquierda" 
+            SoloLectura="True" width="350" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136">
+    <asp:Label ID="Label5" runat="server" Text="Interesado o Solicitante"></asp:Label>
+    
+                </td>
+                <td class="auto-style70">
+    
+    <uc1:TextBox ID="txtInteresadoSolicitante" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="Solicitante" Align="Izquierda" 
+            SoloLectura="True" width="350" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136">
+    <asp:Label ID="Label7" runat="server" Text="Departamento"></asp:Label>
+
+                </td>
+                <td class="auto-style70">
+
+    <uc1:TextBox ID="txtDepartamento" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreDepartamento" Align="Izquierda" 
+            SoloLectura="True" width="120" />
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136">&nbsp;</td>
+                <td class="auto-style70">&nbsp;</td>
+            </tr>
+        </table>
+     <br />
+    <br />
+    <br />
+
+    </div>
+    <div style="position: absolute; top: 7px; left: 530px; width: 422px; height: 139px;">
+    
+        <table style="width: 100%; margin-left: 0px;">
+            <tr>
+                <td class="auto-style190">
+    
+    <asp:Label ID="Label2" runat="server" Text="SubServicio"></asp:Label>
+
+                </td>
+                <td>
+
+    <uc1:TextBox ID="txtSubServicio" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreSubServicio" Align="Izquierda" 
+            SoloLectura="True" width="300" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style191">
+
+    <asp:Label ID="Label4" runat="server" Text="Tipo de Encargado"></asp:Label>
+
+                </td>
+                <td class="auto-style73">
+
+    <uc1:TextBox ID="txtTipoEncargado" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreTipoResponsable" Align="Izquierda" 
+            SoloLectura="True" width="80" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style190">
+
+    <asp:Label ID="Label6" runat="server" Text="Tipo de Solicitante"></asp:Label>
+
+                </td>
+                <td>
+
+    <uc1:TextBox ID="txtTipoSolicitante" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreTipoSolicitante" Align="Izquierda" 
+            SoloLectura="True" width="80" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style190">
+
+    <asp:Label ID="Label8" runat="server" Text="Municipio"></asp:Label>
+    
+                </td>
+                <td>
+    
+    <uc1:TextBox ID="txtMunicipio" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreMunicipio" Align="Izquierda" 
+            SoloLectura="True" width="200" />
+
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+    <br />
+
+    <br />
+
+    <br />
+
+    </div>
+    <div style="position: absolute; top: 140px; left: 4px;">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            <asp:Panel runat="server" Width="933px" ID="Panel1" Height="24px">
+                
+            </asp:Panel>
+        
+        </asp:ContentPlaceHolder>
+        </div>
+    </div>
+        </div>
+</asp:Content>
+
+
+    

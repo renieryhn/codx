@@ -1,0 +1,30 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Propiedades.Master" CodeBehind="wfmConstancia_Edit.aspx.vb" Inherits="UserControls.wfmConstancia_Edit" %>
+<%@ MasterType VirtualPath="~/Propiedades.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<%@ Register src="../../../Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
+
+    <asp:Label ID="Label1" runat="server" Text="Editar Constancia:"></asp:Label>
+    <br />
+    <asp:Label ID="lblIdExpediente" runat="server" Text="Expediente: "></asp:Label>
+    <uc1:TextBox ID="TextBox1" runat="server" Habilitado="False" 
+        FieldName="IdConstancia" />
+    <br />
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="Número Constancia: "></asp:Label>
+    <uc1:TextBox ID="TextBox3" runat="server" Habilitado="False" 
+        FieldName="IdConstancia" />
+    <br />
+    <asp:RadioButton ID="rbPJ" runat="server"  Visible ="false" Text="PJ" 
+        GroupName="Estilo" />
+    <asp:RadioButton ID="rbExtranjeria" runat="server" Visible ="false" Text="E" 
+        GroupName="Estilo" />
+    <br />
+    <asp:Label ID="lblNRF" runat="server" Text="Recibo Finanzas: "></asp:Label>
+    <uc1:TextBox ID="TextBox2" runat="server" FieldName="NumReciboFinanzas" />
+    <br />
+    <asp:HyperLink ID="linkMain" runat="server" NavigateUrl="~/Mantenimientos/Generales/Constancia/wfmConstancia_list.aspx"
+        Visible="False">[linkMain]</asp:HyperLink>
+
+</asp:Content>

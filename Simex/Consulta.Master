@@ -1,0 +1,27 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Consulta.master.vb" Inherits="smx.Consulta" MasterPageFile="Site.master" %>
+<%@ MasterType VirtualPath="Site.Master"%>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+<asp:Content ID="Content1" runat="server" 
+    contentplaceholderid="ContentPlaceHolder1">
+    <div id ="Search" title="Opciones" class="BarraBotones">
+                    <asp:Button ID="btnBuscar" runat="server" Text="Buscar" BorderStyle="None" CssClass="BotonNegro" />
+                    <asp:AnimationExtender ID="btnBuscar_AnimationExtender" runat="server" 
+                        Enabled="True" TargetControlID="btnBuscar" >
+                    </asp:AnimationExtender>
+        
+                    <asp:Button ID="btnNuevo" runat="server" Text="Nuevo" BorderStyle="None" CssClass="BotonNegro" />
+                    <asp:AnimationExtender ID="btnNuevo_AnimationExtender" runat="server" 
+                        Enabled="True" TargetControlID="btnNuevo">
+                    </asp:AnimationExtender>
+                
+                    <asp:Button ID="btnExportar" runat="server" Text="Exportar" BorderStyle="None" CssClass="BotonNegro" CausesValidation="False" />
+                    <asp:AnimationExtender ID="btnExportar_AnimationExtender" runat="server" 
+                        Enabled="True" TargetControlID="btnExportar">
+                    </asp:AnimationExtender>
+        </div>
+     <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"> 
+     
+    </asp:ContentPlaceHolder>
+     </asp:Content>
+
+

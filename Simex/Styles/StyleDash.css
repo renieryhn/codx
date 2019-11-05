@@ -1,0 +1,863 @@
+﻿html, body, form
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #0e0e0e;
+	font-family: "Segoe UI" , Arial, sans-serif;
+}
+
+.box
+{
+	background: #050505 url('Images/logo_bg.png') 0 0 no-repeat;
+	padding-top: 86px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	top: 0;
+	min-height: 100%;
+	width: 1252px;
+	border-left: 1px solid #222;
+	border-right: 1px solid #222;
+}
+
+/* About dialog styles */
+#AboutWindow_C
+{
+	color: #FFF;
+	font-size: 10px;
+	background: #464646 url('Images/about_window_bg.png') repeat-x 0 0;
+}
+
+.AboutHeader
+{
+	position: relative;
+	height: 133px;
+	padding: 20px;
+}
+
+.AboutSiteMap
+{
+	height: 135px;
+	padding: 20px 20px 0;
+}
+
+.AboutFooter
+{
+	padding: 13px 20px 0;
+}
+
+.AboutHeader h2
+{
+	display: block;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 16px;
+	margin: 0 0 16px;
+	padding: 0;
+}
+
+.AboutHeader a img
+{
+	border: 0;
+}
+
+.AboutHeader span.title
+{
+	color: #badd00;
+	display: block;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.AboutHeader span.title a
+{
+	color: #badd00;
+	text-decoration: none;
+}
+
+.AboutHeader span.title a:hover
+{
+	text-decoration: underline;
+}
+
+.AboutHeader span.note, 
+.AboutFooter span.note,
+.footer span.note
+{
+	color: #777;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.AboutHeader .DownloadSource
+{
+	position: absolute;
+	right: 40px;
+	bottom: 35px;
+	background: url('Images/source_button.png') no-repeat 0 0;
+	width: 144px;
+	height: 40px;
+	display: block;
+}
+
+.AboutHeader .DownloadSource:hover
+{
+	background-position: 0 -40px;
+}
+
+div.AboutSiteMap .RadSiteMap .rsmList .rsmTemplate
+{
+	border: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.AboutSiteMap .rsmItem .rsmList
+{
+	margin-top: 20px;
+}
+
+.AboutSiteMap .ASPNET .rsmTemplate
+{
+	background-position: 0 0;
+}
+.AboutSiteMap .Silverlight .rsmTemplate
+{
+	background-position: 0 -44px;
+}
+.AboutSiteMap .ORM .rsmTemplate
+{
+	background-position: 0 -30px;
+}
+
+.AboutSiteMap .rsmList .ASPNET, 
+.AboutSiteMap .rsmList .Silverlight, 
+.AboutSiteMap .rsmList .ORM {
+	float: left;
+	clear: none;
+}
+
+.AboutSiteMap .rsmList .ASPNET {
+	width: 250px;
+}
+
+.AboutSiteMap .rsmList .ORM {
+	width: 160px;
+}
+
+.AboutSiteMap .rsmList .Silverlight {
+	width: 200px;
+}
+
+.AboutSiteMap .rsmList .ASPNET .rsmTemplate,
+.AboutSiteMap .rsmList .Silverlight .rsmTemplate,
+.AboutSiteMap .rsmList .ORM .rsmTemplate
+{
+	background-image: url('Images/radcontrols_logos.png');
+	background-repeat: no-repeat;
+	height: 24px;
+}
+
+.AboutSiteMap .rsmList .ASPNET .rsmList .rsmTemplate,
+.AboutSiteMap .rsmList .Silverlight .rsmList .rsmTemplate,
+.AboutSiteMap .rsmList .ORM .rsmList .rsmTemplate
+{
+	background: none;
+	height: auto;
+}
+
+.AboutSiteMap .rsmList .Default
+{
+	list-style-type: square;
+	list-style-position: inside;
+	padding-left: 10px;
+}
+* + html .AboutSiteMap .rsmList .Default
+{
+	vertical-align: middle;
+}
+* html .AboutSiteMap .rsmList .Default
+{
+	vertical-align: middle;
+}
+
+.footer a,
+.AboutHeader a, 
+.AboutSiteMap .Default a
+{
+	color: #FFF;
+	text-decoration: none;
+}
+
+.footer a:hover,
+.AboutHeader a:hover, 
+.AboutSiteMap .Default a:hover
+{
+	text-decoration: underline;
+}
+
+.AboutSiteMap .ASPNET .Default
+{
+	color: #73c050;
+}
+.AboutSiteMap .Silverlight .Default
+{
+	color: #119bcd;
+}
+.AboutSiteMap .ORM .Default
+{
+	color: #d8471c;
+}
+
+/* Footer styles */
+
+.footer
+{
+	margin-top: 50px;
+	margin-left: 30px;
+	padding-left: 142px;
+	padding-top: 5px;
+	color: #777;
+	font-size: 10px;
+	background: #050505 url('Images/footer_logo.png') no-repeat 0 0;
+}
+
+div.footer .note
+{
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+/* RadListView styles */
+.rlvItem, .rlvSelected
+{
+	width: 242px;
+	height: 87px;
+}
+.rlvItem a, .rlvSelected a, .rlvHover a
+{
+	display: block;
+	float: left;
+	width: 242px;
+	height: 77px;
+	background-color: #111;
+	background-image: url('Images/ListViewItem.png');
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	color: #fff;
+	text-decoration: none;
+	padding-top: 10px;
+	position: relative;
+}
+.rlvHover a
+{
+	background-color: #111;
+	background-position: 0 -100px;
+	color: #070707;
+}
+.rlvItem a span, 
+.rlvSelected a span, 
+.rlvHover a span
+{
+	text-transform: uppercase;
+	line-height: 12px;
+}
+.rlvItem a .percentage,
+.rlvHover a .percentage,
+.rlvSelected a .percentage
+{
+	position: absolute;
+	right: 5px;
+	bottom: 1px;
+	color: #5D5D5D;
+	font-family: "Segoe UI" , Arial, Sans-Serif;
+	font-size: 30px;
+	font-weight: normal;
+	line-height: normal;
+}
+.rlvHover a .percentage
+{
+	color: #070707;
+	cursor: pointer;
+}
+.rlv
+{
+	padding-top: 2px; 
+	padding-bottom: 2px;
+	background-color: #212121;
+}
+.photo
+{
+	float: left;
+	margin: -3px 10px 0 7px;
+	border: 1px solid #0e0e0e;
+}
+.rlvHover .photo
+{
+	background: #111;
+	border: 1px solid #415E00;
+}
+
+/* ListView's tootlip :*/
+.tooltip-info-main-div
+{
+	width: 170px;
+}
+.tooltip-info-main-div .text
+{
+	margin-top:3px;
+	padding-left:5px;
+	font-size:10px;
+	width:170px;
+}
+
+.tooltip-info-main-div .percentage
+{
+	font-size:30px;
+	font-weight:bold;
+	text-align:center;
+	margin-top:10px;
+	width:170px;
+}
+
+
+/* TabStrip Styles */
+.tabStripHeader
+{
+	margin-top: 20px;
+}
+
+#ViewChooser
+{
+	display: inline-block;
+	margin-left: 259px;
+}
+
+#ViewChooser .rtsLink:hover .rtsTxt
+{
+	color: #9EDA29;
+}
+
+#ViewChooser .rtsImg, #AboutToolbar .rtbIcon
+{
+	width: 17px;
+	height: 17px;
+}
+* + html #ViewChooser .rtsImg
+{
+	margin-top: 1px;
+}
+* html #ViewChooser .rtsImg
+{
+	margin-top: 1px;
+}
+
+#AboutToolbar
+{
+	position: absolute;
+	right: 30px;
+	top: 30px;
+	background: transparent url(Images/toolbar_bg.png) no-repeat 0 0;
+	padding: 0 20px 3px;
+}
+
+#AboutToolbar .rtbOuter,
+#AboutToolbar .rtbMiddle
+{
+	border: 0;
+}
+
+#AboutToolbar .rtbMiddle
+{
+	margin: 1px 0;
+}
+
+#AboutToolbar .rtbIcon
+{
+	padding: 0;
+	margin-left: 5px;
+	margin-top: 1px;
+}
+
+#AboutToolbar .rtbText
+{
+	padding-right: 5px;
+}
+
+.mapTitle,
+.ordersTitle,
+.statsTitle,
+.pageNav a,
+#ViewChooser .StatsTab .rtsImg,
+#ViewChooser .OrdersTab .rtsImg,
+#ViewChooser .CountryTab .rtsImg,
+#AboutToolbar .AboutToolButton .rtbIcon, 
+#AboutToolbar .DownloadToolButton .rtbIcon, 
+#AboutToolbar .MoreToolButton .rtbIcon
+{
+	background-image: url('Images/button_icons.png');
+	background-repeat: no-repeat;
+}
+
+#ViewChooser .StatsTab .rtsImg
+{
+	background-position: 0 0;
+}
+
+#ViewChooser .OrdersTab .rtsImg
+{
+	background-position: 0 -17px;
+}
+
+#ViewChooser .CountryTab .rtsImg
+{
+	background-position: 0 -34px;
+}
+
+#AboutToolbar .AboutToolButton .rtbIcon
+{
+	background-position: 0 -51px;
+}
+
+#AboutToolbar .DownloadToolButton .rtbIcon
+{
+	background-position: 0 -68px;
+}
+
+#AboutToolbar .MoreToolButton .rtbIcon
+{
+	background-position: 0 -85px;
+}
+
+#ViewChooser .StatsTab:hover .rtsImg, #ViewChooser .StatsTabSelected .rtsImg
+{
+	background-position: -17px 0;
+}
+
+#ViewChooser .OrdersTab:hover .rtsImg, #ViewChooser .OrdersTabSelected .rtsImg
+{
+	background-position: -17px -17px;
+}
+
+#ViewChooser .CountryTab:hover .rtsImg, #ViewChooser .CountryTabSelected .rtsImg
+{
+	background-position: -17px -34px;
+}
+
+#AboutToolbar .AboutToolButton:hover .rtbIcon
+{
+	background-position: -17px -51px;
+}
+
+#AboutToolbar .DownloadToolButton:hover .rtbIcon
+{
+	background-position: -17px -68px;
+}
+
+#AboutToolbar .MoreToolButton:hover .rtbIcon
+{
+	background-position: -17px -85px;
+}
+
+.datePickers
+{
+	float: right;
+	color: #FFF;
+	font-size: 11px;
+	vertical-align: middle;
+	line-height: 18px;
+	padding-right: 20px;
+	margin-top: -8px;
+}
+
+.datePickers .sText
+{
+	vertical-align: middle;
+}
+
+.content
+{
+	position: relative;
+	margin-top: -120px;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	margin-top: -1px;
+	background: #050505 url('Images/content_bg.png') repeat-x 0 0;
+}
+
+.slider
+{
+	margin-left: 7px;
+	padding-bottom: 5px;
+}
+
+.mapContainer,
+.statsContainer,
+.ordersContainer
+{
+	padding-top: 160px;
+}
+
+.mapTitle,
+.ordersTitle,
+.statsTitle
+{
+	color: #FFFFFF;
+	display: block;
+	left: 295px;
+	line-height: 29px;
+	padding-left: 40px;
+	position: absolute;
+	top: 25px;
+	font-size: 20px;
+	padding-bottom: 3px;
+}
+
+.statsTitle
+{
+	background-position: 0 -102px;
+}
+
+.ordersTitle
+{
+	background-position: 0 -134px;
+}
+
+.mapTitle
+{
+	background-position: 0 -166px;
+}
+
+.mapGrid,
+.repBio
+{
+	margin: 0 20px 0 18px;
+}
+
+* html .mapGrid,
+* html .repBio
+{
+	margin: 0 10px 0 9px;
+}
+
+.imageMap
+{
+	margin-left: 50px;
+	margin-top: -75px;
+}
+
+.mapGrid,
+.imageMap,
+.productsTreeView,
+.productsGrid,
+.repBio
+{
+	float: left;
+}
+
+.repBio
+{
+	width: 240px;
+	color: #CCC;
+	font-size: 11px;
+}
+
+h3
+{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #FFF;
+}
+
+.pageNav
+{
+	position: absolute;
+	right: 25px;
+	top: 25px;
+	width: 250px;
+	text-align: right;
+}
+
+.pageNav a
+{
+	outline: 0;
+	line-height: 20px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.pageNav a:hover
+{
+	color: #8dc127;
+}
+
+.prevPage
+{
+	padding-left: 20px;
+	background-position: 0 -202px;
+}
+
+.nextPage
+{
+	margin-left: 20px;
+	padding-right: 20px;
+	background-position: 100% -222px;
+}
+
+.TelerikModalOverlay
+{
+	background-color: #000 !important;
+}
+
+.ajaxLoader
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 20000;
+}
+* html .ajaxLoader { position:absolute; }
+
+/* Begin UserDetails UserControl */
+.userDetails
+{
+	position: absolute;
+	width: 260px;
+	height: 150px;
+	background: #050505;
+	float: left;
+	color: #FFF;
+	z-index: 20001;
+}
+.udImage
+{
+	float: left;
+	padding-left: 18px;
+	width: 70px;
+	height: 70px;
+}
+.udRating
+{
+	float: right;
+	padding-right: 20px;
+	padding-top: 7px;
+	height: 70px;
+	width: 140px;
+}
+*+html .udRating .fName { line-height: 12px; }
+* html .udRating .fName { line-height: 12px; }
+
+.udRating .lName
+{
+	text-transform: uppercase;
+	line-height: 12px;
+}
+
+.userDetails .RadRating
+{
+	margin-top: 3px;
+}
+
+/*************************/
+.currencyDetails
+{
+	color: #d7d7d7;
+	margin-top: 95px;
+	width: 260px;
+	font-size: 12px;
+}
+.currencyDetails ul, .currencyDetails ul li
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.currencyDetails ul
+{
+	padding: 0 0 0 18px;
+}
+.currencyDetails ul li
+{
+	text-align: left;
+	padding-right: 20px;
+}
+.currencyDetails li span
+{
+	float: right;
+	display: block;
+	width: 85px;
+	color: #8dc127;
+	font-size: 11px;
+}
+/* End UserDetails UserControl */
+
+/* Begin ItemDetails user control */
+.itemDetails
+{
+	position: absolute;
+	top: 80px;
+	left: 336px;
+	width: 900px;
+}
+
+.idImage
+{
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin: 0;
+	padding: 5px;
+	background: transparent url('Images/image_border.png') no-repeat 0 0;
+}
+
+.idImage img
+{
+	width: 50px;
+	height: 50px;
+}
+
+.order-id
+{
+	font-size: 14px;
+	color: #FFF;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.order-total
+{
+	margin: 0px;
+	padding: 0px;
+	font-size: 35px;
+	line-height: 35px;
+	color: #FFF;
+	text-align: left;
+}
+
+.small-text
+{
+	font-size: 14px;
+	color: #CCC;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.customer-name
+{
+	font-size: 12px;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.shiping-text
+{
+	font-size: 12px;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.second-block-content
+{
+	margin-left: 10px;
+	padding: 0;
+	text-align: left;
+	float: left;
+	list-style: none;
+	width:90px;
+}
+
+.second-block-content ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.block-content
+{
+	padding: 0;
+	text-align: center;
+	float: left;
+	list-style: none;
+	width: 240px;
+}
+
+.block-content ul
+{
+	margin-left: 20px;
+	text-align: left;
+}
+
+.block-content,
+.second-block-content
+{
+	margin-top: 10px;
+	line-height: 1.1em;
+}
+
+.empty-block
+{
+	color: #FFFFFF;
+	font-size: 20px;
+	height: 60px;
+	line-height: 50px;
+	margin-left: 20px;
+	text-align: left;
+	width: 630px;
+	float: left;
+}
+/* End ItemDetails user control */
+
+html body .RadGrid_Black .RadInput .riEnabled,
+html body .RadGrid_Black .RadInput .riHover,
+html body .RadGrid_Black .RadInput .riFocused
+{
+	background-image:none;
+	border-color: #080808;
+}
+
+.chartsWrapper
+{
+    float: left;
+    margin-top: -90px;
+}
+
+.gaugeTitle
+{
+    color: White;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.gauge
+{
+    padding-left: 40px;
+}
+
+.totalOrdersChart
+{
+    z-index: 1;
+}
+
+.ordersPercentChart
+{
+    float: right;
+    margin-top: -90px;
+}
+
+.k-tooltip
+{
+    white-space: nowrap;
+    padding: 2px 3px;
+}

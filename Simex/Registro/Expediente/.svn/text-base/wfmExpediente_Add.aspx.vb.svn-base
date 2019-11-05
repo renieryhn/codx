@@ -1,0 +1,174 @@
+﻿Imports prjDatos
+Imports System.Data.SqlClient
+
+Public Class wfmExpediente_Add
+    Inherits System.Web.UI.Page
+    Private cFunciones As New funciones
+    Private sMensaje As String = ""
+    Private Const spNombre As String = "pExpediente_Add"
+    Private sNombreBusquedaCliente As String = "pCliente_List"
+    Private sNombreAltaCliente As String = "pCliente_Add"
+    Private sNombreBusquedaApoderado As String = "pApoderados_List"
+    Private sNombreAltaApoderado As String = "pApoderados_Add"
+    Private sNombreBusquedaInstitucion As String = "pInstituciones_List"
+    Private sNombreAltaInstitucion As String = "pInstituciones_Add"
+    Private sNombreBusquedaSubServicio As String = "pSubServicios_List"
+    Private sNombreBusquedaRequisitos As String = "pRequisitosSubServicios_List"
+    Private sNombreAltaExpedientesRequisitos As String = "pExpedientesRequisitos_Add"
+    Private dtDatosCliente, dtDatosApoderado, dtDatosInstitucion As New DataTable
+    Private idTipoSolicitante As String
+    Private idTipoInteresado As String
+    Dim dtDatos As New DataTable
+
+
+#Region "Eventos"
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        AddHandler Master.Aceptar_Click, AddressOf btnAceptar_Click
+        AddHandler Master.Aplicar_Click, AddressOf btnAplicar_Click
+        AddHandler Master.Cancelar_Click, AddressOf btnCancelar_Click
+
+        If IsPostBack Then
+            If Session("Mensaje") <> "" Then
+                Mensaje(Session("Mensaje"))
+            End If
+        Else
+            Session("Mensaje") = ""
+        End If
+    End Sub
+
+    Protected Sub btnAceptar_Click(ByVal sender As Object, ByVal e As EventArgs)
+        If bInsertar() Then
+            Response.Redirect(linkMain.NavigateUrl)
+        Else
+            If sMensaje <> "" Then
+                Mensaje(sMensaje)
+            End If
+        End If
+    End Sub
+    Protected Sub btnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Response.Redirect(linkMain.NavigateUrl)
+    End Sub
+    Protected Sub btnAplicar_Click(ByVal sender As Object, ByVal e As EventArgs)
+        If bInsertar() Then
+            Response.Redirect(LinkMe.NavigateUrl)
+        Else
+            Mensaje(sMensaje)
+        End If
+    End Sub
+    
+
+    Private Sub cboServicio_ComboChangedItem(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboServicio.ComboChangedItem
+        cboSubServicio.LLenarCombo(sender)
+    End Sub
+    Private Sub cboSubServicio_ComboChangedItem(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboSubServicio.ComboChangedItem
+        If cboSubServicio.Value <> "" Then
+            llenarRequisitos()
+        End If
+
+    End Sub
+    Private Sub cboDepartamento_ComboChangedItem(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDepartamentoExpediente.ComboChangedItem
+        cboMunicipioExpediente.LLenarCombo(sender)
+    End Sub
+#End Region
+#Region "Metodos"
+
+
+
+#Region "Metodos Busqueda PopUp"
+
+    Private Sub llenarRequisitos()
+        Repeater1.DataSource = cFunciones.Filldatatable(sNombreBusquedaRequisitos, dtParametrosRequisitosVerificar)
+        Repeater1.DataBind()
+    End Sub
+
+    Private Function dtParametrosRequisitosVerificar() As DataTable
+        Try
+            dtParametrosRequisitosVerificar = cFunciones.dtDatos.Clone
+            dtParametrosRequisitosVerificar.Rows.Add(cboSubServicio.FieldName, cboSubServicio.Value)
+
+        Catch ex As Exception
+        End Try
+    End Function
+
+
+#End Region
+    Private Function bInsertar() As Boolean
+        Dim Ok As Boolean
+        Dim numExpediente As String = ""
+        Ok = cFunciones.Ejecutar(spNombre, dtParametros, "NumExpedienteNuevo", numExpediente, sMensaje)
+        If Ok Then
+            ActualizarRequisitos(numExpediente)
+            sMensaje = sMensaje & " Expediente Numero: " & numExpediente
+        End If
+        Session("Mensaje") = sMensaje
+        Return Ok
+    End Function
+
+    Public Function dtParametros(Optional ByVal bInactivo As Boolean = False) As DataTable
+        Try
+            dtParametros = cFunciones.dtDatos.Clone
+            dtParametros.Rows.Add(txtNumRecibo.FieldName, txtNumRecibo.Text)
+            dtParametros.Rows.Add(cboServicio.FieldName, cboServicio.Value)
+            dtParametros.Rows.Add(cboSubServicio.FieldName, cboSubServicio.Value)
+            dtParametros.Rows.Add("idClienteResponsable", EncargadoResponsable.cliente)
+            dtParametros.Rows.Add("idInstitucionResponsable", EncargadoResponsable.Institucion)
+            dtParametros.Rows.Add("idApoderadoResponsable", EncargadoResponsable.Apoderado)
+            dtParametros.Rows.Add("idClienteSolicitante", InteresadoSolicitante.cliente)
+            dtParametros.Rows.Add("idInstitucionSolicitante", InteresadoSolicitante.Institucion)
+            dtParametros.Rows.Add(cboMunicipioExpediente.FieldName, cboMunicipioExpediente.Value)
+            dtParametros.Rows.Add(txtObservacionesExpediente.FieldName, txtObservacionesExpediente.Text)
+            dtParametros.Rows.Add("idUsuario", Master.Master.Usuario)
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Function
+    Public Function dtParametrosRequisitos(ByVal numExpediente As String, ByVal idrequisito As Integer, ByVal valor As Boolean) As DataTable
+
+        Try
+            dtParametrosRequisitos = cFunciones.dtDatos.Clone
+            dtParametrosRequisitos.Rows.Add("idExpediente", numExpediente)
+            dtParametrosRequisitos.Rows.Add("idRequisito", idrequisito)
+            dtParametrosRequisitos.Rows.Add("Valor", valor)
+            dtParametrosRequisitos.Rows.Add("idUsuario", Master.Master.Usuario)
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Function
+    Public Function ActualizarRequisitos(ByVal numExpediente As String) As DataTable
+        Try
+            Dim Ok As Boolean
+            ActualizarRequisitos = cFunciones.dtDatos.Clone
+            For Each RepeaterItem As RepeaterItem In Repeater1.Items
+                Dim cbValor As New CheckBox
+                cbValor = RepeaterItem.FindControl("Checkbox1")
+                Dim idrequisito As Label
+                idrequisito = RepeaterItem.FindControl("idRequisito")
+                Dim Valor As String = ""
+                Ok = cFunciones.Ejecutar(sNombreAltaExpedientesRequisitos, dtParametrosRequisitos(numExpediente, idrequisito.Text, cbValor.Checked), sMensaje)
+                ' Session("Mensaje") = sMensaje
+                'Mensaje(cbValor.Checked)
+            Next
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Function
+
+    Public Sub Mensaje(ByVal sMensaje As String)
+        Dim strScript As String = "<script language=JavaScript>"
+        strScript += "alert(""" & sMensaje & """);"
+        strScript += "</script>"
+        If (Not ClientScript.IsStartupScriptRegistered("clientScript")) Then
+            ClientScript.RegisterClientScriptBlock(Me.GetType(), "clientScript", strScript)
+        End If
+    End Sub
+#End Region
+End Class

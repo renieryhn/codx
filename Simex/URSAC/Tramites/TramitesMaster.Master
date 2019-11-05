@@ -1,0 +1,177 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="TramitesMaster.Master.vb" Inherits="smx.TramitesMaster" MasterPageFile="~/Site.master" %>
+<%@ MasterType VirtualPath="~/Site.Master"%>
+    
+<%@ Register src="~/Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+    
+<asp:Content ID="Content1" runat="server" 
+    contentplaceholderid="ContentPlaceHolder1">
+    <div align="left" style="border-width: thin; border-color: #EFEFEF; border-style: inherit; width: 200px; position: absolute; top: 120px; left: 8px; height: 83%; ">
+        <asp:Panel runat="server" Width="157px">
+            <div lang="es-hn" style="border-style: inherit; padding: 1px 1px 5px 1px; margin: 5px; width: 185px;">
+                <asp:TextBox ID="txtBuscarTra" runat="server" BorderColor="#3399FF" BorderStyle="Solid" BorderWidth="1px" Height="25px" MaxLength="16" Width="150px" Columns="15" ToolTip="Escriba el número de Registro que desea buscar."></asp:TextBox>
+                <asp:ImageButton ID="btnBuscar" runat="server" BackColor="#99CCFF" BorderColor="#3399FF" BorderStyle="Solid" BorderWidth="1px" Height="26px" ImageAlign="Top" ImageUrl="~/Imagenes/Buscar.png" Width="26px" EnableViewState="False" />
+            </div>
+            <br />
+        </asp:Panel>
+    </div>
+    <div class="DD">
+    <div style="border-style: inherit; position: absolute; top: 120px; left: 214px; height: 152px; width: 84%; ">
+        <br />
+    <div style="position: absolute; top: 8px; left: 7px; width: 516px; height: 120px;">
+    
+        <table style="width: 99%;">
+            <tr>
+                <td class="auto-style1">
+    <asp:Label ID="Label9" runat="server" Text="Número de Trámite"></asp:Label>
+                </td>
+                <td class="auto-style1">
+                <uc1:TextBox ID="txtNumRegistro" runat="server" Align="Izquierda" 
+                    Apariencia="SingleText" FieldName="NumRegistro" Habilitado="False" Int="False" 
+                    SoloLectura="True" />
+                        <asp:Label ID="lblCancel" runat="server" BackColor="#CCCCCC" Font-Bold="True" Font-Size="Large" ForeColor="Red" Text="CANCELADA" Visible="False"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136">
+    <asp:Label ID="Label5" runat="server" Text="Denominación"></asp:Label>
+    
+                </td>
+                <td class="auto-style70">
+    
+    <uc1:TextBox ID="txtDenominacion" runat="server" Apariencia="Multiline" 
+    Habilitado="False" Int="True" FieldName="NombreInstitucion" Align="Izquierda" 
+            SoloLectura="True" width="350" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">
+    
+                    Trámite</td>
+                <td class="auto-style1">
+    <uc1:TextBox ID="txtSubservicio" runat="server" Apariencia="SingleText" 
+     Habilitado="False" Int="True" FieldName="Folio" Align="Izquierda" 
+            SoloLectura="True" width="80" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136" fieldname="AsignadoA">
+                    Tomo</td>
+                <td class="auto-style70">
+
+    <uc1:TextBox ID="txtAsignadoA" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="Tomo" Align="Izquierda" 
+            SoloLectura="True" width="150" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style136">Direccion</td>
+                <td class="auto-style70">
+    
+    <uc1:TextBox ID="txtDireccion" runat="server" Apariencia="Multiline" 
+    Habilitado="False" Int="True" FieldName="Direccion" Align="Izquierda" 
+            SoloLectura="True" width="350" />
+
+                    <asp:ImageButton ID="btnEditInst" runat="server" Height="17px" ImageUrl="~/Imagenes/grid_editar.png" Width="16px" />
+
+                    <asp:HiddenField ID="hfIdInstitucion" runat="server" />
+
+                </td>
+            </tr>
+        </table>
+     <br />
+    <br />
+    <br />
+
+    </div>
+    <div style="position: absolute; top: 7px; left: 530px; width: 422px; height: 139px;">
+    
+        <table style="width: 100%; margin-left: 0px;">
+            <tr>
+                <td class="auto-style190">
+    
+                    Fecha</td>
+                <td>
+
+    <uc1:TextBox ID="txtFecha" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="FechaRegistro" Align="Izquierda" 
+            SoloLectura="True" width="300" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style190">
+    
+    <asp:Label ID="Label7" runat="server" Text="Departamento"></asp:Label>
+
+                </td>
+                <td>
+
+    <uc1:TextBox ID="txtDepartamento" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="Departamento" Align="Izquierda" 
+            SoloLectura="True" width="150" />
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style190">
+    
+    <asp:Label ID="Label8" runat="server" Text="Municipio"></asp:Label>
+    
+                </td>
+                <td>
+
+    <uc1:TextBox ID="txtMunicipio" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="Municipio" Align="Izquierda" 
+            SoloLectura="True" width="150" />
+
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style191">
+
+                    Encargado</td>
+                <td class="auto-style73">
+
+    <uc1:TextBox ID="txtEncargadoResponsable" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreApoderado" Align="Izquierda" 
+            SoloLectura="True" width="350" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style190">
+
+    <asp:Label ID="Label6" runat="server" Text="Estado"></asp:Label>
+
+                </td>
+                <td>
+
+    <uc1:TextBox ID="txtEstado" runat="server" Apariencia="SingleText" 
+    Habilitado="False" Int="True" FieldName="NombreEstado" Align="Izquierda" 
+            SoloLectura="True" width="150" />
+                </td>
+            </tr>
+            </table>
+        <br />
+        <br />
+    <br />
+
+    <br />
+
+    <br />
+
+    </div>
+    <div style="position: absolute; top: 160px; left: 4px;">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            <asp:Panel runat="server" Width="933px" ID="Panel1" Height="24px">
+                
+            </asp:Panel>
+        
+        </asp:ContentPlaceHolder>
+        </div>
+    </div>
+        </div>
+</asp:Content>
+
+
+    

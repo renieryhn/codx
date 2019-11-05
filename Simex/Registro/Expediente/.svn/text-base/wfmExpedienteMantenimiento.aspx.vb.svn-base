@@ -1,0 +1,401 @@
+﻿Imports prjDatos
+Public Class wfmExpedienteMantenimiento
+    Inherits System.Web.UI.Page
+    Dim Funciones As New funciones
+    Private sMensaje As String = ""
+    Dim Ok As Boolean
+    Dim id As String
+    Private sNombreBusqueda As String = "pDetalleExpediente_List"
+    Private sNombreNuevoComentario As String = "pComentarioDetalleExpediente_Add"
+    Private sAgregarEstado As String = "pDetalleExpediente_AgregarEstado"
+    Private Const spListNombre As String = "pDetalleExpediente_List"
+    Private spResoluciones_List As String = "pResoluciones_List"
+    Private spAnularResolucion As String = "pExpediente_AnularResolucion"
+    Private spDictamenes_List As String = "pDictamenes_List"
+    Private spAnularDictamen As String = "pExpediente_AnularDictamen"
+    Dim ComentariosModificacion As String
+    Dim dtDatos As DataTable
+#Region "Eventos"
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        AddHandler Master.PreRender, AddressOf Page_PreRender
+
+    End Sub
+    Protected Sub btnCambiarEncargadoExpediente_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCambiarEncargadoExpediente.Click
+        Response.Redirect("/wfmCambiarEncargadoExpediente_List.aspx")
+    End Sub
+    Protected Sub btnAnularNumeroDictamen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAnularNumeroDictamen.Click
+        ObtenerDictamenes()
+        mpeAnularDictamen.Show()
+    End Sub
+    Protected Sub btnEvaluarResolucion_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEvaluarResolucion.Click
+        Response.Redirect("/wfmEvauarResolucion_List.aspx")
+    End Sub
+    Protected Sub btnEvaluarDictamen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEvaluarDictamen.Click
+        Response.Redirect("/wfmEvauarDictamen_List.aspx")
+    End Sub
+    Protected Sub btnAgregarComentario_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAgregarComentario.Click
+        mpeAgregarComentario.Show()
+    End Sub
+    Private Sub btnAceptar_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
+        bModificar()
+        'Mensaje(sMensaje)
+    End Sub
+    Private Sub Page_PreRender(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.PreRender
+        If Master.idExpediente <> "" And Not IsPostBack Then
+            CargarValores()
+        End If
+    End Sub
+    Private Sub cboNuevoEstado_ComboChangedItem(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboNuevoEstado.ComboChangedItem
+        If cboNuevoEstado.Value <> "-1" And cboNuevoEstado.Value <> Nothing Then
+            cboNuevoEmpleado.LLenarCombo(dtParametrosEmpleadoEstado)
+        End If
+
+    End Sub
+    Protected Sub btnAnularResolucion_Click(sender As Object, e As EventArgs) Handles btnAnularResolucion.Click
+        If Not bAnularResolucion() Then
+            mpeAnularResolucion.Show()
+        End If
+    End Sub
+    Protected Sub btnAnularDictamen_Click(sender As Object, e As EventArgs) Handles btnAnularDictamen.Click
+        If Not bAnularDictamen() Then
+            mpeAnularDictamen.Show()
+        End If
+    End Sub
+    Protected Sub btnInsertarComentario_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertarComentario.Click
+        bInsertarComentario()
+    End Sub
+    Protected Sub btnAnularNumeroResolucion_Click(sender As Object, e As EventArgs) Handles btnAnularNumeroResolucion.Click
+        ObtenerResoluciones()
+        mpeAnularResolucion.Show()
+    End Sub
+#End Region
+#Region "Metodos"
+    Private Function bObtenerFechaRecepcion() As DataTable
+        bObtenerFechaRecepcion = Funciones.Filldatatable(sNombreBusqueda, dtParametrosFechaRecepcion, sMensaje)
+        Session("Mensaje") = sMensaje
+    End Function
+    Private Sub CargarValores()
+        
+        Try
+            If Master.idExpediente <> "" Then
+
+                dtDatos = Funciones.Filldatatable(spListNombre, dtParametrosFechaRecepcion)
+                txtEstadoActual.Text = dtDatos.Rows(0).Item(txtEstadoActual.FieldName)
+                cboNuevoEstado.LLenarCombo(dtParametroComboEstadoEnviar)
+                txtEstadoActual.width = Len(dtDatos.Rows(0).Item(txtEstadoActual.FieldName)) * 8
+                dtcFechaRecepcion.Value = dtDatos.Rows(0).Item(dtcFechaRecepcion.FieldName)
+                dtcFechaAsignacion.Value = dtDatos.Rows(0).Item(dtcFechaAsignacion.FieldName).ToString
+                txtAsignadoA.Text = dtDatos.Rows(0).Item(txtAsignadoA.FieldName).ToString
+                txtRecibidoPor.Text = dtDatos.Rows(0).Item(txtRecibidoPor.FieldName).ToString
+                txtNumDictamen.Text = dtDatos.Rows(0).Item(txtNumDictamen.FieldName).ToString
+                txtNumeroResolucion.Text = dtDatos.Rows(0).Item(txtNumeroResolucion.FieldName).ToString
+                dtcFechaResolucion.Value = dtDatos.Rows(0).Item(dtcFechaResolucion.FieldName).ToString
+                dtcFechaDictamen.Value = dtDatos.Rows(0).Item(dtcFechaDictamen.FieldName).ToString
+                btnCambiarEncargadoExpediente.Enabled = True
+                'prueba
+                If Master.Master.Alta And Not dtcFechaRecepcion.Value Is Nothing Then
+                    btnAnularNumeroDictamen.Enabled = True
+                    btnAnularNumeroResolucion.Enabled = True
+                    btnAceptar.Enabled = True
+                End If
+                If txtRecibidoPor.Text.ToLower = Master.Master.Usuario.ToLower And Not dtcFechaRecepcion.Value Is Nothing Then
+
+                    btnAceptar.Enabled = True
+                    btnAgregarComentario.Enabled = True
+
+                    btnCambiarEncargadoExpediente.Enabled = True
+
+                    btnEvaluarDictamen.Enabled = True
+                    btnEvaluarResolucion.Enabled = True
+                End If
+                Session("Modificacion") = dtDatos.Rows(0).Item("Modificacion") + " FECHA MODIFICACION:" & Date.Now & " USUARIO MODIFICACION:" & Master.Master.Usuario
+                Session("Modificacion") = Session("Modificacion") & " MODIFICACIONES: DATOS ANTIGUOS: ESTADO:" & dtDatos.Rows(0).Item("Estado").ToString()
+                Session("Modificacion") = Session("Modificacion") & " USUARIO RECIBE:" & dtDatos.Rows(0).Item("RecibidoPor").ToString()
+                'Session("fechaConfirmacionAsignacion") = DirectCast(dtDatos.Rows(0).Item("FechaConfirmacionAsignacion"), DateTime)
+            End If
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Sub
+    Private Function bModificar() As Boolean
+        Dim Ok As Boolean
+
+        Ok = Funciones.Ejecutar(sAgregarEstado, dtParametrosAgregarEstado, sMensaje)
+        Mensaje(sMensaje)
+        ' Session("Mensaje") = sMensaje
+        Return Ok
+    End Function
+    Private Function bInsertarComentario() As Boolean
+        Dim Ok As Boolean
+        Ok = Funciones.Ejecutar(sNombreNuevoComentario, dtParametrosComentario, sMensaje)
+        If sMensaje <> "" Then
+            Mensaje(sMensaje)
+        End If
+
+        ' Session("Mensaje") = sMensaje
+        Return Ok
+    End Function
+    Private Function bAnularResolucion() As Boolean
+        Dim Ok As Boolean
+        Ok = Funciones.Ejecutar(spAnularResolucion, dtParametrosAnularResolucion, sMensaje)
+        If sMensaje <> "" Then
+            Mensaje(sMensaje)
+        End If
+        ' Session("Mensaje") = sMensaje
+        Return Ok
+    End Function
+    Private Function bAnularDictamen() As Boolean
+        Dim Ok As Boolean
+        Ok = Funciones.Ejecutar(spAnularDictamen, dtParametrosAnularDictamen, sMensaje)
+        If Not sMensaje = "" Then
+            Mensaje(sMensaje)
+        End If
+
+        Return Ok
+    End Function
+    Private Function ObtenerDictamenes() As Boolean
+        Dim Ok As Boolean
+        ListadoDictamenRepeater.DataSource = Funciones.Filldatatable(spDictamenes_List, dtParametrosBuscarResolucion, sMensaje)
+        ListadoDictamenRepeater.DataBind()
+        If Not sMensaje = "" Then
+            Mensaje(sMensaje)
+        End If
+
+        Return Ok
+    End Function
+    Private Function ObtenerResoluciones() As Boolean
+        Dim Ok As Boolean
+        ListadoResolucionesRepeater.DataSource = Funciones.Filldatatable(spResoluciones_List, dtParametrosBuscarResolucion, sMensaje)
+        ListadoResolucionesRepeater.DataBind()
+        If Not sMensaje = "" Then
+            Mensaje(sMensaje)
+        End If
+
+        Return Ok
+    End Function
+    Private Function dtParametrosAgregarEstado() As DataTable
+        Try
+
+            ComentariosModificacion = "Expediente:" & Master.idExpediente & Session("Modificacion") & " DATOS NUEVOS: ESTADO:" & cboNuevoEstado.Text
+            ComentariosModificacion = ComentariosModificacion & " USUARIO RECIBE:" & cboNuevoEmpleado.Text
+            dtParametrosAgregarEstado = Funciones.dtDatos.Clone
+            dtParametrosAgregarEstado.Rows.Add("idExpediente", Master.idExpediente)
+            dtParametrosAgregarEstado.Rows.Add(cboNuevoEstado.FieldName, cboNuevoEstado.Value)
+            dtParametrosAgregarEstado.Rows.Add(cboNuevoEmpleado.FieldName, cboNuevoEmpleado.Value)
+            dtParametrosAgregarEstado.Rows.Add("Modificacion", ComentariosModificacion)
+            dtParametrosAgregarEstado.Rows.Add("idusuario", Master.Master.Usuario)
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Private Function idResolucion() As Integer
+        Dim iNumero As Integer = 0
+        If ListadoResolucionesRepeater.Items.Count > 0 Then
+            For Each Fila As RepeaterItem In ListadoResolucionesRepeater.Items
+                Dim RequisitoIDlbl As Label
+                Dim szRequisitoID As String
+                RequisitoIDlbl = Fila.FindControl("id")
+                szRequisitoID = RequisitoIDlbl.Text
+                Dim ValorChkbx As CheckBox
+                ValorChkbx = TryCast(Fila.FindControl("Anular"), CheckBox)
+                If ValorChkbx.Checked Then
+                    iNumero = iNumero + 1
+                    idResolucion = szRequisitoID
+                End If
+            Next
+            If iNumero > 1 Then
+                Session("Mensaje") = "Error"
+                Mensaje("Debe seleccionar solamente una resolución de la lista")
+                mpeAnularResolucion.Show()
+                Return Nothing
+            End If
+        Else
+            Session("Mensaje") = "Error"
+            Mensaje("Debe seleccionar una resolución de la lista")
+        End If
+    End Function
+    Private Function idDictamen() As Integer
+        Dim iNumero As Integer = 0
+        If ListadoDictamenRepeater.Items.Count > 0 Then
+            For Each Fila As RepeaterItem In ListadoDictamenRepeater.Items
+                Dim RequisitoIDlbl As Label
+                Dim szRequisitoID As String
+                RequisitoIDlbl = Fila.FindControl("idDictamen")
+                szRequisitoID = RequisitoIDlbl.Text
+                Dim ValorChkbx As CheckBox
+                ValorChkbx = TryCast(Fila.FindControl("AnularDictamen"), CheckBox)
+                If ValorChkbx.Checked Then
+                    iNumero = iNumero + 1
+                    idDictamen = szRequisitoID
+                End If
+            Next
+            If iNumero > 1 Then
+                Session("Mensaje") = "Error"
+                Mensaje("Debe seleccionar solamente un dictamen de la lista")
+                mpeAnularResolucion.Show()
+                Return Nothing
+            End If
+        Else
+            Session("Mensaje") = "Error"
+            Mensaje("Debe seleccionar un dictamen de la lista")
+        End If
+    End Function
+    Private Function dtParametrosBuscarResolucion() As DataTable
+        Try
+            dtParametrosBuscarResolucion = Funciones.dtDatos.Clone
+            dtParametrosBuscarResolucion.Rows.Add("idExpediente", Master.idExpediente)
+
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Private Function dtParametrosAnularResolucion() As DataTable
+        Try
+            Session("Mensaje") = ""
+            dtParametrosAnularResolucion = Funciones.dtDatos.Clone
+            dtParametrosAnularResolucion.Rows.Add("idResolucion", idResolucion)
+            dtParametrosAnularResolucion.Rows.Add("id", Master.idExpediente)
+            dtParametrosAnularResolucion.Rows.Add("Comentario", txtJustificacion.Text)
+            dtParametrosAnularResolucion.Rows.Add("idUsuario", Master.Master.Usuario)
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Private Function dtParametrosAnularDictamen() As DataTable
+        Try
+            Session("Mensaje") = ""
+            dtParametrosAnularDictamen = Funciones.dtDatos.Clone
+            dtParametrosAnularDictamen.Rows.Add("idDictamen", idDictamen)
+            dtParametrosAnularDictamen.Rows.Add("id", Master.idExpediente)
+            dtParametrosAnularDictamen.Rows.Add("Justificacion", txtJustificacionDictamen.Text)
+            dtParametrosAnularDictamen.Rows.Add("idUsuario", Master.Master.Usuario)
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Private Function dtParametrosEmpleadoEstado() As DataTable
+        Try
+            dtParametrosEmpleadoEstado = Funciones.dtDatos.Clone
+            dtParametrosEmpleadoEstado.Rows.Add("idEstado", cboNuevoEstado.Value)
+            dtParametrosEmpleadoEstado.Rows.Add("Recibir", "1")
+            dtParametrosEmpleadoEstado.Rows.Add("Activo", "0")
+
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Private Function dtParametrosComentario() As DataTable
+        Try
+            dtParametrosComentario = Funciones.dtDatos.Clone
+            dtParametrosComentario.Rows.Add("id", Master.idExpediente)
+            dtParametrosComentario.Rows.Add("Comentario", txtComentarios.Text)
+            dtParametrosComentario.Rows.Add("idusuario", Master.Master.Usuario)
+        Catch ex As Exception
+            'Throw (ex)
+        End Try
+    End Function
+    Public Function dtParametros(Optional ByVal bInactivo As Boolean = False) As DataTable
+        Try
+
+            dtParametros = Funciones.dtDatos.Clone
+            ComentariosModificacion = Session("Comentarios") & " DATOS NUEVOS: ESTADO:" & cboNuevoEstado.Text
+            ComentariosModificacion = ComentariosModificacion & " USUARIO RECIBE:" & cboNuevoEmpleado.Text
+            dtParametros.Rows.Add("idDetalleExpediente", Session("idDetalleExpediente"))
+            dtParametros.Rows.Add("idExpediente", Master.idExpediente)
+            dtParametros.Rows.Add(cboNuevoEmpleado.FieldName, cboNuevoEmpleado.Value)
+            dtParametros.Rows.Add(cboNuevoEstado.FieldName, cboNuevoEstado.Value)
+            dtParametros.Rows.Add("Comentario", ComentariosModificacion)
+            dtParametros.Rows.Add("FechaConfirmacionAsignacion", Format(Session("fechaConfirmacionAsignacion"), "dd/MM/yyyy HH:mm"))
+            dtParametros.Rows.Add("idUsuario", Master.Master.Usuario)
+
+            If Session("Mensaje") = "Error" Then
+                Return Nothing
+            End If
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Private Function dtParametrosFechaRecepcion() As DataTable
+        Try
+            dtParametrosFechaRecepcion = Funciones.dtDatos.Clone
+            dtParametrosFechaRecepcion.Rows.Add("idExpediente", Master.idExpediente)
+            dtParametrosFechaRecepcion.Rows.Add("UltimoEstado", 1)
+            'dtParametrosFechaRecepcion.Rows.Add("idUsuario", Master.Master.Usuario)
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Public Function dtParametrosBusqueda(Optional ByVal bInactivo As Boolean = False) As DataTable
+        Try
+            dtParametrosBusqueda = Funciones.dtDatos.Clone
+            dtParametrosBusqueda.Rows.Add("id", Session("idDetalleExpediente"))
+
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Public Function dtParametroComboTodos() As DataTable
+        Try
+            dtParametroComboTodos = Funciones.dtDatos.Clone
+            dtParametroComboTodos.Rows.Add("idUsuario", Master.Master.Usuario)
+            dtParametrosBusqueda.Rows.Add("Enviar", "1")
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Public Function dtParametroComboEmpleados() As DataTable
+        Try
+            dtParametroComboEmpleados = Funciones.dtDatos.Clone
+            dtParametroComboEmpleados.Rows.Add("idUsuario", Master.Master.Usuario)
+            dtParametroComboEmpleados.Rows.Add("Recibir", 1)
+            dtParametroComboEmpleados.Rows.Add("idEstado", cboNuevoEstado.Value)
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Public Function dtParametroComboEstadoEnviar() As DataTable
+        Try
+            dtParametroComboEstadoEnviar = Funciones.dtDatos.Clone
+           dtParametroComboEstadoEnviar.Rows.Add("idUsuario", Master.Master.Usuario)
+            dtParametroComboEstadoEnviar.Rows.Add("Enviar", 1)
+            If Not Master.Master.Alta Then
+                dtParametroComboEstadoEnviar.Rows.Add("idEstadoActual", 1)
+                dtParametroComboEstadoEnviar.Rows.Add("idServicio", Master.idExpediente.ToString.Substring(0, 2))
+                dtParametroComboEstadoEnviar.Rows.Add("idExpediente", Master.idExpediente)
+            End If
+            
+
+
+        Catch ex As Exception
+            Mensaje(ex.Message)
+        End Try
+    End Function
+    Public Sub Mensaje(ByVal sMensaje As String)
+        Dim strScript As String = "<script language=JavaScript>"
+        strScript += "alert(""" & sMensaje & """);"
+        strScript += "</script>"
+        If (Not ClientScript.IsStartupScriptRegistered("clientScript")) Then
+            ClientScript.RegisterClientScriptBlock(Me.GetType(), "clientScript", strScript)
+        End If
+    End Sub
+#End Region
+
+    
+    
+   
+    
+    
+    
+    
+End Class

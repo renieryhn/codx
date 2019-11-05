@@ -1,0 +1,79 @@
+﻿<%@ Master Language="VB" CodeBehind="Site.master.vb" Inherits="smx.Site" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>CODEX</title>
+
+    <link href="~/Site.css" rel="stylesheet" type="text/css" />
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style1
+        {
+            width: 10px;
+            height: 10px;
+        }
+        #form1 {
+            height: 243px;
+            margin-bottom: 27px;
+        }
+        </style>
+
+</head>
+
+   <body>
+    <div>
+
+        <form id="form1" runat="server" >
+            <div class="DDMainHeader">
+                SISTEMA DE CONTROL DE EXPEDIENTES
+            </div>
+
+            <div id="TITULO" style="height: 23px; width: 100%; background-color: #000000;">
+                <div class="DDSubHeader" style="background-position: center center;">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                    <asp:Label ID="lblTitulo" runat="server" Font-Bold="True" Font-Names="Tahoma" Font-Size="Large"></asp:Label>
+                </div>
+            </div>
+
+            <div align="left" dir="ltr"
+                title="CODEX" class="DDMenu">
+
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="False"
+                    UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <telerik:RadMenu ID="rMenu" Runat="server" MaxDataBindDepth="2"
+
+                    EnableRoundedCorners="true" EnableShadows="true" EnableTextHTMLEncoding="true"  Skin="Glow" Width="100%">
+
+                        </telerik:RadMenu>
+                        <br />
+                    </ContentTemplate>
+
+                </asp:UpdatePanel>
+            </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+
+        </form>
+
+    </div>
+
+   <div class="DDFooter">
+       </div>
+</body>
+  
+      
+</html>
+

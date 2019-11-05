@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="NombreSecretaria" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SECRETARIA DE ESTADO EN LOS DESPACHOS DE DERECHOS HUMANOS, JUSTICIA, GOBERNACIÓN Y DESCENTRALIZACIÓN</Value>
+    </Setting>
+    <Setting Name="URLMobilQ" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://consulta.sdhjgd.gob.hn/waconsultasimex/mobil/Default.aspx?exp=</Value>
+    </Setting>
+    <Setting Name="URLConstMobilQ" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://consulta.sdhjgd.gob.hn/waconsultasimex/mobil/Constancia.aspx?id=</Value>
+    </Setting>
+    <Setting Name="ReciboDefVal" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="SMTPPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="SMTPServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">hdcex01.sdhjgd.gob.hn</Value>
+    </Setting>
+    <Setting Name="SMTPUserEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">no-reply@sdhjgd.gob.hn</Value>
+    </Setting>
+    <Setting Name="SMTPPwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">@CODEX2015</Value>
+    </Setting>
+    <Setting Name="NombreLargoSistema" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SISTEMA DE CONTROL DE EXPEDIENTES</Value>
+    </Setting>
+    <Setting Name="SMTPEnableSSL" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="NombreCortoSistema" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CODEX</Value>
+    </Setting>
+    <Setting Name="URLAcreQR" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://consulta.sdhjgd.gob.hn/waconsultasimex/mobil/acreditaciones.aspx?id=</Value>
+    </Setting>
+    <Setting Name="EmailSoporte" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">codex@sdhjgd.gob.hn</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

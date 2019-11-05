@@ -1,0 +1,269 @@
+﻿   
+#lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000000;
+    display: none;
+}
+
+#signup {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    padding-bottom: 2px;
+    width: 581px;
+    font-family:Tahoma;
+}
+
+#signup-header {
+    background: url("Imagenes/hd-bg.png") repeat scroll 0 0 transparent;
+    border-bottom: 5px solid #CCCCCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 18px 18px 18px;
+}
+
+.modal_close {
+    background: url("Imagenes/modal_close.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 14px;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    width: 14px;
+    z-index: 2;
+}
+
+#signup-header h2 {
+    color: #ffaa00;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-shadow: 1px 1px 0 #444444;
+}
+
+#signup-header p {
+    color: #444444;
+    font-size: 14px;
+    margin: 0;
+    text-shadow: none;
+}
+
+#signup .txt-fld {
+    padding: 14px 20px;
+    position: relative;
+    text-align: left;
+    width: 539px;
+    top: 0px;
+    left: 0px;
+}
+
+#signup .txt-fld label {
+    color: #222222;
+    display: block;
+    float: left;
+    font-size: 16px;
+    padding-top: 8px;
+    text-align: left;
+    width: 110px;
+}
+
+#signup .txt-fld input.good_input {
+    background: url("Imagenes/good.png") no-repeat scroll 236px center #DEF5E1;
+}
+
+#signup .txt-fld input {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #222222;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    outline: medium none;
+    padding: 8px;
+    width: 244px;
+}
+
+#signup .btn-fld {
+    overflow: hidden;
+    padding: 12px 20px 12px 130px;
+    width: 348px;
+    border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC;
+    border-radius: 0px 4px 4px 0px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#signup .button {
+    background: none repeat scroll 0 0 #3F9D4A;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    float: right;
+    font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: visible;
+    padding: 7px 7px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    width: auto;
+}
+
+
+.lean_overlay {
+    position: fixed;
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    height:100%;
+    width:100%;
+    background: #000000;
+    display: none;
+}
+
+.signup {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    padding-bottom: 2px;
+    width: 520px;
+    font-family:Tahoma;
+}
+.signup .AddData{
+    height : 500px;
+    overflow-y: scroll;
+    background-color:lightyellow; 
+}
+.signup-header {
+    background: url("Imagenes/hd-bg.png") repeat scroll 0 0 transparent;
+    border-bottom: 5px solid #CCCCCC;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 18px 18px 18px;
+}
+
+.modal_close {
+    background: url("Imagenes/modal_close.png") repeat scroll 0 0 transparent;
+    display: block;
+    height: 14px;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    width: 14px;
+    z-index: 2;
+}
+
+.signup-header h2 {
+    color: #ffaa00;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-shadow: 1px 1px 0 #444444;
+}
+
+.signup-header p {
+    color: #444444;
+    font-size: 14px;
+    margin: 0;
+    text-shadow: none;
+}
+
+.signup .txt-fld {
+    padding: 3px 25px 3px 25px;
+    position: relative;
+    text-align: left;
+    width: 500px;
+    top: 0px;
+    left: 0px;
+}
+
+.signup .txt-fld label {
+    color: #222222;
+    display: block;
+    float: left;
+    font-size: 14px;
+    padding-top: 8px;
+    text-align: left;
+    width: 110px;
+}
+
+.signup .txt-fld input.good_input {
+    background: url("Imagenes/good.png") no-repeat scroll 236px center #DEF5E1;
+}
+
+.signup .txt-fld input {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #222222;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    outline: medium none;
+    padding: 8px;
+    width: 244px;
+    height:7px; 
+}
+
+.signup .txt-fld select {
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #222222;
+    font-family: "Tahoma";
+    font-size: 14px;
+    outline: medium none;
+
+    width: 244px;
+}
+
+.signup .btn-fld {
+    overflow: hidden;
+    padding: 12px 20px 12px 130px;
+    width: 370px;
+    border-color: #CCCCCC #E7E6E6 #E7E6E6 #CCCCCC;
+    border-radius: 0px 4px 4px 0px;
+    border-style: solid;
+    border-width: 1px;
+}
+.signup .btn-fld .btn2 {
+    
+    
+}
+.signup .button {
+    background: none repeat scroll 0 0 #3F9D4A;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    float: right;
+    font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: visible;
+    padding: 7px 7px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    width: auto;
+}
+.signup .buttonCancel {
+    background: none repeat scroll 0 0 #f45f5f;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    float: right;
+    font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: visible;
+    padding: 7px 7px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    width: auto;
+}

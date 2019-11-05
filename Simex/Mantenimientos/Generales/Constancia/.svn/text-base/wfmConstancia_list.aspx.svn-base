@@ -1,0 +1,68 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Consulta.Master" CodeBehind="wfmConstancia_list.aspx.vb" Inherits="UserControls.wfmConstancia_list" %>
+<%@ MasterType VirtualPath="~/Consulta.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<%@ Register src="../../../Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:Label ID="lblFiltros" runat="server" Text="Filtros:"></asp:Label>
+    <br />
+    <asp:Label ID="lblNumeroConstancia" runat="server" Text="Numero de constancia: "></asp:Label>
+    <uc1:TextBox ID="tbNumeroConstancia" runat="server" FieldName="IdConstancia" 
+        Obligatorio="False" MaxLength="64"/>
+    <br />
+    <asp:Label ID="lblNRF" runat="server" Text="Numero Recibo Finanzas:"></asp:Label>
+    <uc1:TextBox ID="tbNumeroRecibo" runat="server" FieldName="NumReciboFinanzas" 
+        Obligatorio="False" MaxLength="64" Int="True"/>
+    <br />
+    <asp:Label ID="lblUsuario" runat="server" FieldName="" Text="Usuario: "></asp:Label>
+    <uc1:TextBox ID="tbUsuario" runat="server" FieldName="UsuarioNombre" 
+        Obligatorio="False" MaxLength="64" />
+    <br />
+    <asp:Label ID="lblExpedientes" runat="server" Text="Expedientes:"></asp:Label>
+    <uc1:TextBox ID="tbExpedientes" runat="server" FieldName="IdExpediente" 
+        Obligatorio="False" MaxLength="64"/>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+        CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+        <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkimprimir" runat="server" CausesValidation="False" CommandName="Select" 
+                        Text="Ver Constancia"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkEditar" runat="server" CausesValidation="False" CommandName="Edit"
+                        Text="Editar"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkEliminar" runat="server" CausesValidation="False" OnClientClick="return confirm('Seguro que desea eliminar el registro?');"
+                        CommandName="Delete" Text="Eliminar"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="IdConstancia" HeaderText="Constancia" /> 
+            <asp:BoundField DataField="IdExpediente" HeaderText="Expediente" />
+            <asp:BoundField DataField="NRF" HeaderText="NRF" />
+            <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+            <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
+        </Columns>
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+    </asp:GridView>
+    <asp:HyperLink ID="linkNuevo" runat="server" NavigateUrl="~/Mantenimientos/Generales/Constancia/wfmConstancia_Add.aspx"
+        Visible="False">[linkNuevo]</asp:HyperLink>
+    <asp:HyperLink ID="linkModificar" runat="server" NavigateUrl="~/Mantenimientos/Generales/Constancia/wfmConstancia_Edit.aspx"
+        Visible="False">[linkModificar]</asp:HyperLink>
+</asp:Content>

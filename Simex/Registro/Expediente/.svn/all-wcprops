@@ -1,0 +1,323 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/SIMEXWEB_src/!svn/ver/294/trunk/Simex/Registro/Expediente
+END
+WfmExpediente_List.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SIMEXWEB_src/!svn/ver/289/trunk/Simex/Registro/Expediente/WfmExpediente_List.aspx.vb
+END
+wfmControlPersonasRelacionadas_List.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SIMEXWEB_src/!svn/ver/135/trunk/Simex/Registro/Expediente/wfmControlPersonasRelacionadas_List.aspx
+END
+wfmEvaluarResolucion_List.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/SIMEXWEB_src/!svn/ver/151/trunk/Simex/Registro/Expediente/wfmEvaluarResolucion_List.aspx
+END
+wfmEvaluarDictamen_List.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SIMEXWEB_src/!svn/ver/172/trunk/Simex/Registro/Expediente/wfmEvaluarDictamen_List.aspx
+END
+wfmArchivar.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SIMEXWEB_src/!svn/ver/195/trunk/Simex/Registro/Expediente/wfmArchivar.aspx
+END
+wfmControlPersonasRelacionadas_List.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/SIMEXWEB_src/!svn/ver/135/trunk/Simex/Registro/Expediente/wfmControlPersonasRelacionadas_List.aspx.designer.vb
+END
+wfmEvaluarResolucion_List.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SIMEXWEB_src/!svn/ver/151/trunk/Simex/Registro/Expediente/wfmEvaluarResolucion_List.aspx.designer.vb
+END
+wfmExpediente_Add.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SIMEXWEB_src/!svn/ver/243/trunk/Simex/Registro/Expediente/wfmExpediente_Add.aspx
+END
+wfmEvaluarResolucion_List.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/SIMEXWEB_src/!svn/ver/151/trunk/Simex/Registro/Expediente/wfmEvaluarResolucion_List.aspx.vb
+END
+wfmEvaluarDictamen_List.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SIMEXWEB_src/!svn/ver/141/trunk/Simex/Registro/Expediente/wfmEvaluarDictamen_List.aspx.designer.vb
+END
+wfmArchivar.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SIMEXWEB_src/!svn/ver/195/trunk/Simex/Registro/Expediente/wfmArchivar.aspx.designer.vb
+END
+wfmEvaluarDictamen_List.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SIMEXWEB_src/!svn/ver/292/trunk/Simex/Registro/Expediente/wfmEvaluarDictamen_List.aspx.vb
+END
+wfmArchivar.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SIMEXWEB_src/!svn/ver/292/trunk/Simex/Registro/Expediente/wfmArchivar.aspx.vb
+END
+wfmExpediente_Add.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/SIMEXWEB_src/!svn/ver/213/trunk/Simex/Registro/Expediente/wfmExpediente_Add.aspx.designer.vb
+END
+wfmExpedienteEncabezado.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SIMEXWEB_src/!svn/ver/273/trunk/Simex/Registro/Expediente/wfmExpedienteEncabezado.aspx.vb
+END
+wfmCambiarEncargadoExpediente_Prop.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SIMEXWEB_src/!svn/ver/140/trunk/Simex/Registro/Expediente/wfmCambiarEncargadoExpediente_Prop.aspx
+END
+wfmCambiarEncargadoExpediente_List.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SIMEXWEB_src/!svn/ver/158/trunk/Simex/Registro/Expediente/wfmCambiarEncargadoExpediente_List.aspx.vb
+END
+wfmCambiarEncargadoExpediente_Prop.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SIMEXWEB_src/!svn/ver/140/trunk/Simex/Registro/Expediente/wfmCambiarEncargadoExpediente_Prop.aspx.designer.vb
+END
+wfmExpedienteRequisitos_View.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/SIMEXWEB_src/!svn/ver/282/trunk/Simex/Registro/Expediente/wfmExpedienteRequisitos_View.aspx.vb
+END
+wfmExpedienteMantenimiento.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SIMEXWEB_src/!svn/ver/282/trunk/Simex/Registro/Expediente/wfmExpedienteMantenimiento.aspx
+END
+wfmCambiarEncargadoExpediente_Prop.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SIMEXWEB_src/!svn/ver/140/trunk/Simex/Registro/Expediente/wfmCambiarEncargadoExpediente_Prop.aspx.vb
+END
+wfmControlPeronasRelacionadas_Prop.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/SIMEXWEB_src/!svn/ver/135/trunk/Simex/Registro/Expediente/wfmControlPeronasRelacionadas_Prop.aspx.vb
+END
+wfmExpedienteMantenimiento.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SIMEXWEB_src/!svn/ver/282/trunk/Simex/Registro/Expediente/wfmExpedienteMantenimiento.aspx.designer.vb
+END
+crAutoExpediente.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SIMEXWEB_src/!svn/ver/294/trunk/Simex/Registro/Expediente/crAutoExpediente.vb
+END
+wfmExpedienteEstado_Edit.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SIMEXWEB_src/!svn/ver/276/trunk/Simex/Registro/Expediente/wfmExpedienteEstado_Edit.aspx
+END
+wfmExpediente_Edit.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SIMEXWEB_src/!svn/ver/227/trunk/Simex/Registro/Expediente/wfmExpediente_Edit.aspx
+END
+wfmControlPersonasRelacionadas_List.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/SIMEXWEB_src/!svn/ver/135/trunk/Simex/Registro/Expediente/wfmControlPersonasRelacionadas_List.aspx.vb
+END
+wfmSeguimientoExpediente.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SIMEXWEB_src/!svn/ver/247/trunk/Simex/Registro/Expediente/wfmSeguimientoExpediente.aspx
+END
+wfmArchivoAdjuntos.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SIMEXWEB_src/!svn/ver/284/trunk/Simex/Registro/Expediente/wfmArchivoAdjuntos.aspx
+END
+wfmExpedienteEstado_Edit.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/SIMEXWEB_src/!svn/ver/103/trunk/Simex/Registro/Expediente/wfmExpedienteEstado_Edit.aspx.designer.vb
+END
+wfmExpediente_Edit.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SIMEXWEB_src/!svn/ver/218/trunk/Simex/Registro/Expediente/wfmExpediente_Edit.aspx.designer.vb
+END
+wfmExpedienteEstado_Edit.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/SIMEXWEB_src/!svn/ver/259/trunk/Simex/Registro/Expediente/wfmExpedienteEstado_Edit.aspx.vb
+END
+wfmExpediente_Edit.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SIMEXWEB_src/!svn/ver/291/trunk/Simex/Registro/Expediente/wfmExpediente_Edit.aspx.vb
+END
+wfmExpedienteEncabezado.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SIMEXWEB_src/!svn/ver/273/trunk/Simex/Registro/Expediente/wfmExpedienteEncabezado.aspx
+END
+wfmExpediente_Add.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SIMEXWEB_src/!svn/ver/222/trunk/Simex/Registro/Expediente/wfmExpediente_Add.aspx.vb
+END
+wfmSeguimientoExpediente.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/SIMEXWEB_src/!svn/ver/111/trunk/Simex/Registro/Expediente/wfmSeguimientoExpediente.aspx.designer.vb
+END
+wfmCambiarEncargadoExpediente_List.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SIMEXWEB_src/!svn/ver/171/trunk/Simex/Registro/Expediente/wfmCambiarEncargadoExpediente_List.aspx
+END
+wfmArchivoAdjuntos.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SIMEXWEB_src/!svn/ver/189/trunk/Simex/Registro/Expediente/wfmArchivoAdjuntos.aspx.designer.vb
+END
+wfmSeguimientoExpediente.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/SIMEXWEB_src/!svn/ver/246/trunk/Simex/Registro/Expediente/wfmSeguimientoExpediente.aspx.vb
+END
+wfmArchivoAdjuntos.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SIMEXWEB_src/!svn/ver/292/trunk/Simex/Registro/Expediente/wfmArchivoAdjuntos.aspx.vb
+END
+wfmExpedienteEncabezado.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SIMEXWEB_src/!svn/ver/273/trunk/Simex/Registro/Expediente/wfmExpedienteEncabezado.aspx.designer.vb
+END
+wfmExpedienteRequisitos_View.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/SIMEXWEB_src/!svn/ver/282/trunk/Simex/Registro/Expediente/wfmExpedienteRequisitos_View.aspx
+END
+wfmCambiarEncargadoExpediente_List.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SIMEXWEB_src/!svn/ver/158/trunk/Simex/Registro/Expediente/wfmCambiarEncargadoExpediente_List.aspx.designer.vb
+END
+wfmControlPeronasRelacionadas_Prop.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/SIMEXWEB_src/!svn/ver/135/trunk/Simex/Registro/Expediente/wfmControlPeronasRelacionadas_Prop.aspx
+END
+wfmExpedienteRequisitos_View.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/SIMEXWEB_src/!svn/ver/282/trunk/Simex/Registro/Expediente/wfmExpedienteRequisitos_View.aspx.designer.vb
+END
+wfmComentarios.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SIMEXWEB_src/!svn/ver/234/trunk/Simex/Registro/Expediente/wfmComentarios.aspx
+END
+wfmControlPeronasRelacionadas_Prop.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/SIMEXWEB_src/!svn/ver/135/trunk/Simex/Registro/Expediente/wfmControlPeronasRelacionadas_Prop.aspx.designer.vb
+END
+WfmExpediente_List.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SIMEXWEB_src/!svn/ver/292/trunk/Simex/Registro/Expediente/WfmExpediente_List.aspx
+END
+wfmExpedienteMantenimiento.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/SIMEXWEB_src/!svn/ver/292/trunk/Simex/Registro/Expediente/wfmExpedienteMantenimiento.aspx.vb
+END
+wfmComentarios.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/SIMEXWEB_src/!svn/ver/97/trunk/Simex/Registro/Expediente/wfmComentarios.aspx.designer.vb
+END
+crAutoExpediente.rpt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SIMEXWEB_src/!svn/ver/287/trunk/Simex/Registro/Expediente/crAutoExpediente.rpt
+END
+wfmComentarios.aspx.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SIMEXWEB_src/!svn/ver/292/trunk/Simex/Registro/Expediente/wfmComentarios.aspx.vb
+END
+WfmExpediente_List.aspx.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/SIMEXWEB_src/!svn/ver/236/trunk/Simex/Registro/Expediente/WfmExpediente_List.aspx.designer.vb
+END

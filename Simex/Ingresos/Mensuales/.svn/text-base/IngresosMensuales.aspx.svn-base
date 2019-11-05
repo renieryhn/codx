@@ -1,0 +1,40 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Consulta.Master" CodeBehind="IngresosMensuales.aspx.vb" Inherits="UserControls.IngresosMensuales" %>
+<%@ MasterType VirtualPath="~/Consulta.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register src="~/Controles/DateControl.ascx" tagname="DateControl" tagprefix="uc1" %>
+<asp:Content ID="Content1" runat="server" 
+    contentplaceholderid="ContentPlaceHolder2">
+    <p style="height: 21px">
+        <asp:Label ID="lblrbSubservicio" runat="server" Text="Subservicio"></asp:Label>
+        <asp:RadioButton ID="rbSubservicio" runat="server" GroupName="tipoReporte" Checked = "true" />
+    </p>
+    <p style="height: 21px">
+        <asp:Label ID="lblrbOficina" runat="server" Text="Oficina"></asp:Label>
+        <asp:RadioButton ID="rbOficina" runat="server" GroupName="tipoReporte" />
+    </p>
+    <p style="height: 21px">
+        Fecha Inicio
+        <uc1:DateControl ID="dcFechaInicio" runat="server" />
+    </p>
+    <p style="height: 21px">
+        Fecha Fin
+        <uc1:DateControl ID="dcFechafin" runat="server" />
+    </p>
+    <asp:GridView ID="gvReporte" runat="server" Visible = "False" 
+        AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" 
+        GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
+        <EditRowStyle BackColor="#2461BF" />
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+    </asp:GridView>
+    <asp:HyperLink ID="linkMain" runat="server" NavigateUrl="~/Ingresos/Recibo/wfmRecibo_List.aspx" Visible="False"></asp:HyperLink>
+</asp:Content>
+

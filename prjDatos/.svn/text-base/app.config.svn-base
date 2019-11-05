@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <configSections>
+    </configSections>
+    <connectionStrings>
+        <add name="prjDatos.My.MySettings.ConnectionString" connectionString="Data Source=192.168.201.167;Initial Catalog=Simex_Des;Persist Security Info=True;User ID=sa;Password=@Dmin$eip"
+            providerName="System.Data.SqlClient" />
+        <add name="prjDatos.My.MySettings.Prueba" connectionString="Data Source=192.168.201.167;Initial Catalog=Discapacidad;Persist Security Info=True;User ID=sa;Password=Info2010"
+            providerName="System.Data.SqlClient" />
+        <add name="prjDatos.My.MySettings.ConnectionStringLocal" connectionString="Data Source=T-HENRY_ORTEZ\HORTEZ;Initial Catalog=Simex;Persist Security Info=True;User ID=sa;Password=123"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    <system.diagnostics>
+        <sources>
+            <!-- This section defines the logging configuration for My.Application.Log -->
+            <source name="DefaultSource" switchName="DefaultSwitch">
+                <listeners>
+                    <add name="FileLog"/>
+                    <!-- Uncomment the below section to write to the Application Event Log -->
+                    <!--<add name="EventLog"/>-->
+                </listeners>
+            </source>
+        </sources>
+        <switches>
+            <add name="DefaultSwitch" value="Information" />
+        </switches>
+        <sharedListeners>
+            <add name="FileLog"
+                 type="Microsoft.VisualBasic.Logging.FileLogTraceListener, Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                 initializeData="FileLogWriter"/>
+            <!-- Uncomment the below section and replace APPLICATION_NAME with the name of your application to write to the Application Event Log -->
+            <!--<add name="EventLog" type="System.Diagnostics.EventLogTraceListener" initializeData="APPLICATION_NAME"/> -->
+        </sharedListeners>
+    </system.diagnostics>
+</configuration>

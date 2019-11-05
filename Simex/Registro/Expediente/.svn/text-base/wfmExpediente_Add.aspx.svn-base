@@ -1,0 +1,167 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Propiedades.Master" CodeBehind="wfmExpediente_Add.aspx.vb" Inherits="UserControls.wfmExpediente_Add" %>
+<%@ MasterType VirtualPath="~/Propiedades.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register src="~/Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+<%@ Register src="~/Controles/ComboBox.ascx" tagname="ComboBox" tagprefix="uc2" %>
+<%@ Register src="~/Controles/DateControl.ascx" tagname="DateControl" tagprefix="uc3" %>
+<%@ Register src="~/Controles/SolicitanteResponsable.ascx" tagname="SolicitanteResponsable" tagprefix="uc4" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
+    <table style="width: 100%">
+        <tr>
+            <td>
+            
+                <uc4:SolicitanteResponsable ID="EncargadoResponsable" runat="server" 
+                    TipoEntidad="Encargado o Responsable" idMostrar="A, I, C" 
+                    MostrarApoderado="True" MostrarCliente="True" MostrarInstitucion="True" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <uc4:SolicitanteResponsable ID="InteresadoSolicitante" runat="server" 
+                    TipoEntidad="Interesado o Solicitante" MostrarApoderado="False" 
+                    MostrarCliente="True" MostrarInstitucion="True">
+                </uc4:SolicitanteResponsable>
+                </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%">
+                    <tr>
+                        <td colspan="4">
+                        <asp:Label ID="Label119" runat="server" Font-Bold="True" 
+                            Text="Datos del Expediente:"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                        <asp:Label ID="Label120" runat="server" Text="Servicio"></asp:Label>
+                        </td>
+                        <td style="width: 231px">
+               
+                        <uc2:ComboBox ID="cboServicio" runat="server" AutoFill="True" 
+                            FieldName="idServicio" idFieldName="id" postBack="True" TableName="Servicios" 
+                            textFieldName="Nombre" />
+               
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+               
+                        <asp:Label ID="Label121" runat="server" Text="Sub Servicio"></asp:Label>
+               
+                        </td>
+                        <td style="width: 231px">
+               
+               <uc2:ComboBox ID="cboSubServicio" runat="server" AutoFill="False" 
+                            FieldName="idSubServicio" idFieldName="Codigo" idParentComboBox="idServicio" 
+                            TableName="SubServicios" textFieldName="Nombre" 
+                    AditionalCondition="indEstado='A'" postBack="False" />
+               
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                        <asp:Label ID="Label123" runat="server" Text="Recibo"></asp:Label>
+                        </td>
+                        <td style="width: 231px">
+                            <uc1:TextBox ID="txtNumRecibo" runat="server" FieldName="NumRecibo" />
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                        <asp:Label ID="Label122" runat="server" Text="Departamento"></asp:Label>
+                        </td>
+                        <td style="width: 231px">
+                        <uc2:ComboBox ID="cboDepartamentoExpediente" runat="server" AutoFill="True" 
+                            FieldName="idDepartamento" idFieldName="id" TableName="Departamento" 
+                            textFieldName="Nombre" postBack="True" />
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                        <asp:Label ID="Label124" runat="server" Text="Municipio"></asp:Label>
+                        </td>
+                        <td style="width: 231px">
+                        <uc2:ComboBox ID="cboMunicipioExpediente" runat="server" AutoFill="False" 
+                            FieldName="idMunicipio" idFieldName="id" TableName="Municipio" 
+                            textFieldName="Nombre" idParentComboBox="idDepartamento" />
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                        <asp:Label ID="Label125" runat="server" Text="Observaciones"></asp:Label>
+                        </td>
+                        <td style="width: 231px">
+                            <uc1:TextBox ID="txtObservacionesExpediente" runat="server" Height="200" 
+                                width="400" FieldName="Comentario" Apariencia="Multiline" />
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                            </td>
+                        <td style="width: 231px">
+                            </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 30%">
+                            Requisitos</td>
+                        <td style="width: 231px">
+                            <asp:Repeater ID="Repeater1" runat="server">
+                            <HeaderTemplate>
+                             <tr>
+                                 <th>id</th>
+                                 <th>Nombre</th>
+                             </tr>
+                             </HeaderTemplate>
+                             <ItemTemplate>
+                             <tr>
+                                
+                                <td> <asp:Label ID="idRequisito" runat="server" Text=<%# Eval("idRequisito")%>></asp:Label></td>
+                                <td><%# Eval("NombreRequisito")%></td>
+                                <td><asp:CheckBox ID="CheckBox1" runat="server" /></td>
+                             </tr>
+                             </ItemTemplate>
+                            </asp:Repeater>
+                        </td>
+                        <td colspan="2">
+                            </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:HyperLink ID="linkMain" runat="server" 
+                                NavigateUrl="~/Registro/Expediente/wfmExpediente_List.aspx" 
+                                Visible="False">[linkMain]</asp:HyperLink>
+                        </td>
+                        <td style="width: 45%">
+                            <asp:HyperLink ID="LinkMe" runat="server" 
+                                NavigateUrl="~/Registro/Expediente/wfmExpediente_Add.aspx" 
+                                Visible="False">[LinkMe]</asp:HyperLink>
+                        </td>
+                        
+                        <td style="width: 6%">
+                            </td>
+                    </tr>
+                </table>
+                                </td>
+        </tr>
+    </table> 
+    <%--</td>
+    </tr>
+    </table>--%>
+    
+</asp:Content>

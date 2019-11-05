@@ -1,0 +1,37 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/SubMenu.Master" CodeBehind="wfmExpedienteRequisitos_View.aspx.vb" Inherits="UserControls.ExpedienteRequisitos" %>
+<%@ MasterType VirtualPath="~/SubMenu.Master"%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Repeater ID="ExpedienteRequisitosRepeater" runat="server">
+         <HeaderTemplate>
+        <table class="ExpedienteRequisito">
+          <tr style="background-color: #696969; color: White;">
+            <th>ID</th>
+            <th>Requisitos</th>
+            <th>Cumplido</th>
+             <th>Nuevo</th>
+      </HeaderTemplate>
+      <AlternatingItemTemplate>
+        <tr style = "background-color: Teal">
+             <td><asp:Label ID ="IdRequisito" Text = '<%# Eval("id") %>' runat = "server" /></td>
+            <td><asp:Label ID ="RequisitoNombre" Text = '<%# Eval("Nombre") %>' runat = "server" /></td>
+            <td><asp:CheckBox ID = "Valor" Checked ='<%# Eval("Valor") %>'  runat="server" /></td>
+             <td><asp:Label ID ="Nuevo" Text = '<%# Eval("Nuevo") %>' runat = "server" /></td>
+        </tr>
+      </AlternatingItemTemplate>
+      <ItemTemplate>
+        <tr style = "background-color: Aqua">
+             <td><asp:Label ID ="IdRequisito" Text = '<%# Eval("id") %>' runat = "server" /></td>
+            <td><asp:Label ID ="RequisitoNombre" Text = '<%# Eval("Nombre") %>' runat = "server" /></td>
+            <td><asp:CheckBox ID = "Valor" Checked ='<%# Eval("Valor") %>'  runat="server" /></td>
+             <td><asp:Label ID ="Nuevo" Text = '<%# Eval("Nuevo") %>' runat = "server" /></td>
+        </tr>
+      </ItemTemplate>
+    </asp:Repeater>
+    <asp:Button ID="Button1" runat="server" Text="Aceptar" />
+    <asp:Button ID="Button2" runat="server" Text="Cancelar" />
+    <asp:Button ID="BTNAuto" runat="server" Text="Auto" />
+    <asp:HyperLink ID="HyperLink1" runat="server" 
+        NavigateUrl="~/Registro/Expediente/wfmSeguimientoExpediente.aspx" 
+        Visible="False">Regresar</asp:HyperLink>
+</asp:Content>

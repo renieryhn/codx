@@ -1,0 +1,2276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{2A30B711-0B55-43DA-9A5B-73E4D38B53BA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>smx</RootNamespace>
+    <AssemblyName>SIMEX</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>true</IISExpressUseClassicPipelineMode>
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SIMEX.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SIMEX.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=15.1.4.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.15.1.4.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Barcode">
+      <HintPath>packages\Spire.BarCode.1.2.5\lib\net40\Spire.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Ajax, Version=3.0.31106.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Ajax.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.DynamicData.Design" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Reporting, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Reporting.Cache.Database, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Reporting.OpenXmlRendering, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Reporting.Service, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=8.0.14.225, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET AJAX Q1 2014\Bin45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Telerik\UI for ASP.NET AJAX Q1 2014\Bin45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.ComponentModel" />
+    <Import Include="System.ComponentModel.DataAnnotations" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.DynamicData" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Autenticacion\Confirmacion.aspx.designer.vb">
+      <DependentUpon>Confirmacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacion\Confirmacion.aspx.vb">
+      <DependentUpon>Confirmacion.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Autenticacion\LdapAuthentication.vb" />
+    <Compile Include="Autenticacion\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacion\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Autenticacion\RecuperarClave.aspx.designer.vb">
+      <DependentUpon>RecuperarClave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Autenticacion\RecuperarClave.aspx.vb">
+      <DependentUpon>RecuperarClave.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Consulta.Master.designer.vb">
+      <DependentUpon>Consulta.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta.Master.vb">
+      <DependentUpon>Consulta.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\Comentarios.ascx.designer.vb">
+      <DependentUpon>Comentarios.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\Comentarios.ascx.vb">
+      <DependentUpon>Comentarios.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\DateControl.ascx.designer.vb">
+      <DependentUpon>DateControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\DateControl.ascx.vb">
+      <DependentUpon>DateControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\ComboBox.ascx.designer.vb">
+      <DependentUpon>ComboBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ComboBox.ascx.vb">
+      <DependentUpon>ComboBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\messageBox.ascx.designer.vb">
+      <DependentUpon>messageBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\messageBox.ascx.vb">
+      <DependentUpon>messageBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\SolicitanteResponsable.ascx.designer.vb">
+      <DependentUpon>SolicitanteResponsable.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\SolicitanteResponsable.ascx.vb">
+      <DependentUpon>SolicitanteResponsable.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dsTramites.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTramites.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Resoluciones.ascx.designer.vb">
+      <DependentUpon>Resoluciones.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Resoluciones.ascx.vb">
+      <DependentUpon>Resoluciones.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Dictamenes.ascx.designer.vb">
+      <DependentUpon>Dictamenes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Dictamenes.ascx.vb">
+      <DependentUpon>Dictamenes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estadisticas\Expedientes.ascx.designer.vb">
+      <DependentUpon>Expedientes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Estadisticas\Expedientes.ascx.vb">
+      <DependentUpon>Expedientes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmRegistroInformesConst.aspx.designer.vb">
+      <DependentUpon>wfmRegistroInformesConst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmRegistroInformesConst.aspx.vb">
+      <DependentUpon>wfmRegistroInformesConst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\MovimientoMasivoAdmin.aspx.designer.vb">
+      <DependentUpon>MovimientoMasivoAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\MovimientoMasivoAdmin.aspx.vb">
+      <DependentUpon>MovimientoMasivoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\Tramites.aspx.designer.vb">
+      <DependentUpon>Tramites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\Tramites.aspx.vb">
+      <DependentUpon>Tramites.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_Add.aspx.designer.vb">
+      <DependentUpon>wfmDiasFestivos_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_Add.aspx.vb">
+      <DependentUpon>wfmDiasFestivos_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_Edit.aspx.designer.vb">
+      <DependentUpon>wfmDiasFestivos_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_Edit.aspx.vb">
+      <DependentUpon>wfmDiasFestivos_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_List.aspx.designer.vb">
+      <DependentUpon>wfmDiasFestivos_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_List.aspx.vb">
+      <DependentUpon>wfmDiasFestivos_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="mEmail.vb" />
+    <Compile Include="Otros\Acreditaciones\AcreditacionRep.aspx.designer.vb">
+      <DependentUpon>AcreditacionRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\AcreditacionRep.aspx.vb">
+      <DependentUpon>AcreditacionRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\wfmAcreditaciones_Add.aspx.designer.vb">
+      <DependentUpon>wfmAcreditaciones_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\wfmAcreditaciones_Add.aspx.vb">
+      <DependentUpon>wfmAcreditaciones_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\wfmAcreditaciones_Edit.aspx.designer.vb">
+      <DependentUpon>wfmAcreditaciones_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\wfmAcreditaciones_Edit.aspx.vb">
+      <DependentUpon>wfmAcreditaciones_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\wfmAcreditaciones_List.aspx.designer.vb">
+      <DependentUpon>wfmAcreditaciones_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Acreditaciones\wfmAcreditaciones_List.aspx.vb">
+      <DependentUpon>wfmAcreditaciones_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\LibroSubMenu.Master.designer.vb">
+      <DependentUpon>LibroSubMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\LibroSubMenu.Master.vb">
+      <DependentUpon>LibroSubMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistroMiembro_Add.aspx.designer.vb">
+      <DependentUpon>wfmLibroRegistroMiembro_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistroMiembro_Add.aspx.vb">
+      <DependentUpon>wfmLibroRegistroMiembro_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistroMiembro_Edit.aspx.designer.vb">
+      <DependentUpon>wfmLibroRegistroMiembro_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistroMiembro_Edit.aspx.vb">
+      <DependentUpon>wfmLibroRegistroMiembro_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistro_List.aspx.designer.vb" />
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistro_Add.aspx.designer.vb">
+      <DependentUpon>wfmLibroRegistro_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistro_Add.aspx.vb">
+      <DependentUpon>wfmLibroRegistro_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistro_Edit.aspx.designer.vb">
+      <DependentUpon>wfmLibroRegistro_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistro_Edit.aspx.vb">
+      <DependentUpon>wfmLibroRegistro_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistro_List.aspx.vb">
+      <DependentUpon>wfmLibroRegistro_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistroJuntaDirectiva.aspx.designer.vb">
+      <DependentUpon>wfmLibroRegistroJuntaDirectiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\LibroRegistro\wfmLibroRegistroJuntaDirectiva.aspx.vb">
+      <DependentUpon>wfmLibroRegistroJuntaDirectiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\wfmDicResMas.aspx.designer.vb">
+      <DependentUpon>wfmDicResMas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\wfmDicResMas.aspx.vb">
+      <DependentUpon>wfmDicResMas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\ApoderadoEmail.aspx.designer.vb">
+      <DependentUpon>ApoderadoEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\ApoderadoEmail.aspx.vb">
+      <DependentUpon>ApoderadoEmail.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_Add.aspx.designer.vb">
+      <DependentUpon>wfmPuestosJuntaDirectiva_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_Add.aspx.vb">
+      <DependentUpon>wfmPuestosJuntaDirectiva_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_Edit.aspx.designer.vb">
+      <DependentUpon>wfmPuestosJuntaDirectiva_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_Edit.aspx.vb">
+      <DependentUpon>wfmPuestosJuntaDirectiva_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_List.aspx.designer.vb">
+      <DependentUpon>wfmPuestosJuntaDirectiva_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_List.aspx.vb">
+      <DependentUpon>wfmPuestosJuntaDirectiva_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Rubro\wfmRubro_Add.aspx.designer.vb">
+      <DependentUpon>wfmRubro_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Rubro\wfmRubro_Add.aspx.vb">
+      <DependentUpon>wfmRubro_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Rubro\wfmRubro_Edit.aspx.designer.vb">
+      <DependentUpon>wfmRubro_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Rubro\wfmRubro_Edit.aspx.vb">
+      <DependentUpon>wfmRubro_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Rubro\wfmRubro_List.aspx.designer.vb">
+      <DependentUpon>wfmRubro_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Rubro\wfmRubro_List.aspx.vb">
+      <DependentUpon>wfmRubro_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_Add.aspx.designer.vb">
+      <DependentUpon>wfmSubtipo_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_Add.aspx.vb">
+      <DependentUpon>wfmSubtipo_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_Edit.aspx.designer.vb">
+      <DependentUpon>wfmSubtipo_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_Edit.aspx.vb">
+      <DependentUpon>wfmSubtipo_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_List.aspx.designer.vb">
+      <DependentUpon>wfmSubtipo_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_List.aspx.vb">
+      <DependentUpon>wfmSubtipo_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Tipo\wfmTipo_Add.aspx.designer.vb">
+      <DependentUpon>wfmTipo_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Tipo\wfmTipo_Add.aspx.vb">
+      <DependentUpon>wfmTipo_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Tipo\wfmTipo_Edit.aspx.designer.vb">
+      <DependentUpon>wfmTipo_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Tipo\wfmTipo_Edit.aspx.vb">
+      <DependentUpon>wfmTipo_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Tipo\wfmTipo_List.aspx.designer.vb">
+      <DependentUpon>wfmTipo_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\URSAC\Tipo\wfmTipo_List.aspx.vb">
+      <DependentUpon>wfmTipo_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenesEsp_Add.aspx.designer.vb">
+      <DependentUpon>wfmDictamenesEsp_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenesEsp_Add.aspx.vb">
+      <DependentUpon>wfmDictamenesEsp_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportesEspeciales\rACPorDepartamento.Designer.vb">
+      <DependentUpon>rACPorDepartamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesEspeciales\rACPorDepartamento.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportesEspeciales\AsociacionesCiviles.Designer.vb">
+      <DependentUpon>AsociacionesCiviles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesEspeciales\AsociacionesCiviles.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportesEspeciales\rHistoricoJD.Designer.vb">
+      <DependentUpon>rHistoricoJD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesEspeciales\rHistoricoJD.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Comprobante.Designer.vb">
+      <DependentUpon>Comprobante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Comprobante.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rAcreditacion.Designer.vb">
+      <DependentUpon>rAcreditacion.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reportes\rAcreditacion.vb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="URSAC\rHistoricoJD.aspx.designer.vb">
+      <DependentUpon>rHistoricoJD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\rHistoricoJD.aspx.vb">
+      <DependentUpon>rHistoricoJD.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\Tramites\TramitesMaster.Master.designer.vb">
+      <DependentUpon>TramitesMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\Tramites\TramitesMaster.Master.vb">
+      <DependentUpon>TramitesMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\Tramites\wfmTramites_Add.aspx.designer.vb">
+      <DependentUpon>wfmTramites_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\Tramites\wfmTramites_Add.aspx.vb">
+      <DependentUpon>wfmTramites_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\Tramites\wfmTramites_Edit.aspx.designer.vb">
+      <DependentUpon>wfmTramites_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\Tramites\wfmTramites_Edit.aspx.vb">
+      <DependentUpon>wfmTramites_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\Tramites\wfmTramites_List.aspx.designer.vb">
+      <DependentUpon>wfmTramites_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\Tramites\wfmTramites_List.aspx.vb">
+      <DependentUpon>wfmTramites_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\URSubMenu.Master.designer.vb">
+      <DependentUpon>URSubMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\URSubMenu.Master.vb">
+      <DependentUpon>URSubMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\URSACReportes.aspx.designer.vb">
+      <DependentUpon>URSACReportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\URSACReportes.aspx.vb">
+      <DependentUpon>URSACReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCivilesMiembro_Add.aspx.designer.vb">
+      <DependentUpon>wfmAsociacionesCivilesMiembro_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCivilesMiembro_Add.aspx.vb">
+      <DependentUpon>wfmAsociacionesCivilesMiembro_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCivilesMiembro_Edit.aspx.designer.vb">
+      <DependentUpon>wfmAsociacionesCivilesMiembro_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCivilesMiembro_Edit.aspx.vb">
+      <DependentUpon>wfmAsociacionesCivilesMiembro_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCivilesEstado_Edit.aspx.designer.vb">
+      <DependentUpon>wfmAsociacionesCivilesEstado_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCivilesEstado_Edit.aspx.vb">
+      <DependentUpon>wfmAsociacionesCivilesEstado_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroEstadoFinanciero.aspx.designer.vb">
+      <DependentUpon>wfmRegistroEstadoFinanciero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroEstadoFinanciero.aspx.vb">
+      <DependentUpon>wfmRegistroEstadoFinanciero.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroJuntaDirectiva.aspx.designer.vb">
+      <DependentUpon>wfmRegistroJuntaDirectiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroJuntaDirectiva.aspx.vb">
+      <DependentUpon>wfmRegistroJuntaDirectiva.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroResoluciones.aspx.designer.vb">
+      <DependentUpon>wfmRegistroResoluciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroResoluciones.aspx.vb">
+      <DependentUpon>wfmRegistroResoluciones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroResolucionesReformas.aspx.designer.vb">
+      <DependentUpon>wfmRegistroResolucionesReformas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroResolucionesReformas.aspx.vb">
+      <DependentUpon>wfmRegistroResolucionesReformas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroInformesConst.aspx.designer.vb">
+      <DependentUpon>wfmRegistroInformesConst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroInformesConst.aspx.vb">
+      <DependentUpon>wfmRegistroInformesConst.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroTramitesEnLinea.aspx.designer.vb">
+      <DependentUpon>wfmRegistroTramitesEnLinea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroTramitesEnLinea.aspx.vb">
+      <DependentUpon>wfmRegistroTramitesEnLinea.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroRubro.aspx.designer.vb">
+      <DependentUpon>wfmRegistroRubro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmRegistroRubro.aspx.vb">
+      <DependentUpon>wfmRegistroRubro.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCiviles_List.aspx.designer.vb">
+      <DependentUpon>wfmAsociacionesCiviles_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCiviles_List.aspx.vb">
+      <DependentUpon>wfmAsociacionesCiviles_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCiviles_Add.aspx.designer.vb">
+      <DependentUpon>wfmAsociacionesCiviles_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCiviles_Add.aspx.vb">
+      <DependentUpon>wfmAsociacionesCiviles_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCiviles_Edit.aspx.designer.vb">
+      <DependentUpon>wfmAsociacionesCiviles_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmAsociacionesCiviles_Edit.aspx.vb">
+      <DependentUpon>wfmAsociacionesCiviles_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="URSAC\wfmSeguimientoRegistro.aspx.designer.vb">
+      <DependentUpon>wfmSeguimientoRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="URSAC\wfmSeguimientoRegistro.aspx.vb">
+      <DependentUpon>wfmSeguimientoRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Usuario.aspx.designer.vb">
+      <DependentUpon>Usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.aspx.vb">
+      <DependentUpon>Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResolucionesEsp_Add.aspx.designer.vb">
+      <DependentUpon>wfmResolucionesEsp_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResolucionesEsp_Add.aspx.vb">
+      <DependentUpon>wfmResolucionesEsp_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Permiso.aspx.designer.vb">
+      <DependentUpon>Permiso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Permiso.aspx.vb">
+      <DependentUpon>Permiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\RecepcionMasiva.aspx.designer.vb">
+      <DependentUpon>RecepcionMasiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\RecepcionMasiva.aspx.vb">
+      <DependentUpon>RecepcionMasiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\MovimientoMasivo.aspx.designer.vb">
+      <DependentUpon>MovimientoMasivo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\MovimientoMasivo.aspx.vb">
+      <DependentUpon>MovimientoMasivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\wfrmRepConstancias.aspx.designer.vb">
+      <DependentUpon>wfrmRepConstancias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\wfrmRepConstancias.aspx.vb">
+      <DependentUpon>wfrmRepConstancias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingresos\Mensuales\IngresosMensuales.aspx.designer.vb">
+      <DependentUpon>IngresosMensuales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos\Mensuales\IngresosMensuales.aspx.vb">
+      <DependentUpon>IngresosMensuales.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmReciboAdd.aspx.designer.vb">
+      <DependentUpon>wfmReciboAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmReciboAdd.aspx.vb">
+      <DependentUpon>wfmReciboAdd.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmRecibo_Add.aspx.designer.vb">
+      <DependentUpon>wfmRecibo_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmRecibo_Add.aspx.vb">
+      <DependentUpon>wfmRecibo_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmRecibo_Edit.aspx.designer.vb">
+      <DependentUpon>wfmRecibo_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmRecibo_Edit.aspx.vb">
+      <DependentUpon>wfmRecibo_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmRecibo_List.aspx.designer.vb">
+      <DependentUpon>wfmRecibo_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos\Recibo\wfmRecibo_List.aspx.vb">
+      <DependentUpon>wfmRecibo_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Apoderados\wfmApoderados_Add.aspx.designer.vb">
+      <DependentUpon>wfmApoderados_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Apoderados\wfmApoderados_Add.aspx.vb">
+      <DependentUpon>wfmApoderados_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Apoderados\wfmApoderados_Edit.aspx.designer.vb">
+      <DependentUpon>wfmApoderados_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Apoderados\wfmApoderados_Edit.aspx.vb">
+      <DependentUpon>wfmApoderados_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Apoderados\wfmApoderados_List.aspx.designer.vb">
+      <DependentUpon>wfmApoderados_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Apoderados\wfmApoderados_List.aspx.vb">
+      <DependentUpon>wfmApoderados_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Cliente\wfmCliente_Add.aspx.designer.vb">
+      <DependentUpon>wfmCliente_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Cliente\wfmCliente_Add.aspx.vb">
+      <DependentUpon>wfmCliente_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Cliente\wfmCliente_Edit.aspx.designer.vb">
+      <DependentUpon>wfmCliente_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Cliente\wfmCliente_Edit.aspx.vb">
+      <DependentUpon>wfmCliente_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Cliente\wfmCliente_List.aspx.designer.vb">
+      <DependentUpon>wfmCliente_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Cliente\wfmCliente_List.aspx.vb">
+      <DependentUpon>wfmCliente_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Constancia\wfmConstancia_Add.aspx.designer.vb">
+      <DependentUpon>wfmConstancia_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Constancia\wfmConstancia_Add.aspx.vb">
+      <DependentUpon>wfmConstancia_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Constancia\wfmConstancia_Edit.aspx.designer.vb">
+      <DependentUpon>wfmConstancia_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Constancia\wfmConstancia_Edit.aspx.vb">
+      <DependentUpon>wfmConstancia_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Constancia\wfmConstancia_list.aspx.designer.vb">
+      <DependentUpon>wfmConstancia_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Constancia\wfmConstancia_list.aspx.vb">
+      <DependentUpon>wfmConstancia_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_Add.aspx.designer.vb">
+      <DependentUpon>wfmDepartamentoOficina_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_Add.aspx.vb">
+      <DependentUpon>wfmDepartamentoOficina_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_Edit.aspx.designer.vb">
+      <DependentUpon>wfmDepartamentoOficina_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_Edit.aspx.vb">
+      <DependentUpon>wfmDepartamentoOficina_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_List.aspx.designer.vb">
+      <DependentUpon>wfmDepartamentoOficina_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_List.aspx.vb">
+      <DependentUpon>wfmDepartamentoOficina_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Departamento\wfmDepartamento_Add.aspx.designer.vb">
+      <DependentUpon>wfmDepartamento_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Departamento\wfmDepartamento_Add.aspx.vb">
+      <DependentUpon>wfmDepartamento_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Departamento\wfmDepartamento_Edit.aspx.designer.vb">
+      <DependentUpon>wfmDepartamento_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Departamento\wfmDepartamento_Edit.aspx.vb">
+      <DependentUpon>wfmDepartamento_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Departamento\wfmDepartamento_List.aspx.designer.vb">
+      <DependentUpon>wfmDepartamento_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Departamento\wfmDepartamento_List.aspx.vb">
+      <DependentUpon>wfmDepartamento_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Empleados\wfmEmpleados_Add.aspx.designer.vb">
+      <DependentUpon>wfmEmpleados_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Empleados\wfmEmpleados_Add.aspx.vb">
+      <DependentUpon>wfmEmpleados_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Empleados\wfmEmpleados_Edit.aspx.designer.vb">
+      <DependentUpon>wfmEmpleados_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Empleados\wfmEmpleados_Edit.aspx.vb">
+      <DependentUpon>wfmEmpleados_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Empleados\wfmEmpleados_List.aspx.designer.vb">
+      <DependentUpon>wfmEmpleados_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Empleados\wfmEmpleados_List.aspx.vb">
+      <DependentUpon>wfmEmpleados_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_Add.aspx.designer.vb">
+      <DependentUpon>wfmEstadosRol_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_Add.aspx.vb">
+      <DependentUpon>wfmEstadosRol_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_Edit.aspx.designer.vb">
+      <DependentUpon>wfmEstadosRol_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_Edit.aspx.vb">
+      <DependentUpon>wfmEstadosRol_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_List.aspx.designer.vb">
+      <DependentUpon>wfmEstadosRol_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_List.aspx.vb">
+      <DependentUpon>wfmEstadosRol_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Estado\wfmEstado_Add.aspx.designer.vb">
+      <DependentUpon>wfmEstado_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Estado\wfmEstado_Add.aspx.vb">
+      <DependentUpon>wfmEstado_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Estado\wfmEstado_Edit.aspx.designer.vb">
+      <DependentUpon>wfmEstado_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Estado\wfmEstado_Edit.aspx.vb">
+      <DependentUpon>wfmEstado_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Estado\wfmEstado_List.aspx.designer.vb">
+      <DependentUpon>wfmEstado_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Estado\wfmEstado_List.aspx.vb">
+      <DependentUpon>wfmEstado_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Firma\wfmFirma_Add.aspx.designer.vb">
+      <DependentUpon>wfmFirma_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Firma\wfmFirma_Add.aspx.vb">
+      <DependentUpon>wfmFirma_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Firma\wfmFirma_Edit.aspx.designer.vb">
+      <DependentUpon>wfmFirma_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Firma\wfmFirma_Edit.aspx.vb">
+      <DependentUpon>wfmFirma_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Firma\wfmFirma_List.aspx.designer.vb">
+      <DependentUpon>wfmFirma_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Firma\wfmFirma_List.aspx.vb">
+      <DependentUpon>wfmFirma_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_Add.aspx.designer.vb">
+      <DependentUpon>wfmInstituciones_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_Add.aspx.vb">
+      <DependentUpon>wfmInstituciones_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_Edit.aspx.designer.vb">
+      <DependentUpon>wfmInstituciones_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_Edit.aspx.vb">
+      <DependentUpon>wfmInstituciones_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_List.aspx.designer.vb">
+      <DependentUpon>wfmInstituciones_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_List.aspx.vb">
+      <DependentUpon>wfmInstituciones_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Municipio\wfmMunicipio_Add.aspx.designer.vb">
+      <DependentUpon>wfmMunicipio_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Municipio\wfmMunicipio_Add.aspx.vb">
+      <DependentUpon>wfmMunicipio_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Municipio\wfmMunicipio_Edit.aspx.designer.vb">
+      <DependentUpon>wfmMunicipio_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Municipio\wfmMunicipio_Edit.aspx.vb">
+      <DependentUpon>wfmMunicipio_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Municipio\wfmMunicipio_List.aspx.designer.vb">
+      <DependentUpon>wfmMunicipio_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Municipio\wfmMunicipio_List.aspx.vb">
+      <DependentUpon>wfmMunicipio_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Oficina\wfmOficina_Add.aspx.designer.vb">
+      <DependentUpon>wfmOficina_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Oficina\wfmOficina_Add.aspx.vb">
+      <DependentUpon>wfmOficina_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Oficina\wfmOficina_Edit.aspx.designer.vb">
+      <DependentUpon>wfmOficina_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Oficina\wfmOficina_Edit.aspx.vb">
+      <DependentUpon>wfmOficina_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Oficina\wfmOficina_List.aspx.designer.vb">
+      <DependentUpon>wfmOficina_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Oficina\wfmOficina_List.aspx.vb">
+      <DependentUpon>wfmOficina_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Paises\wfmPaises_Add.aspx.designer.vb">
+      <DependentUpon>wfmPaises_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Paises\wfmPaises_Add.aspx.vb">
+      <DependentUpon>wfmPaises_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Paises\wfmPaises_Edit.aspx.designer.vb">
+      <DependentUpon>wfmPaises_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Paises\wfmPaises_Edit.aspx.vb">
+      <DependentUpon>wfmPaises_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Paises\wfmPaises_List.aspx.designer.vb">
+      <DependentUpon>wfmPaises_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Paises\wfmPaises_List.aspx.vb">
+      <DependentUpon>wfmPaises_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_Edit.aspx.designer.vb">
+      <DependentUpon>wfmProfesiones_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_Edit.aspx.vb">
+      <DependentUpon>wfmProfesiones_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_Add.aspx.designer.vb">
+      <DependentUpon>wfmProfesiones_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_Add.aspx.vb">
+      <DependentUpon>wfmProfesiones_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_List.aspx.designer.vb">
+      <DependentUpon>wfmProfesiones_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_List.aspx.vb">
+      <DependentUpon>wfmProfesiones_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Puesto\wfmPuesto_Add.aspx.designer.vb">
+      <DependentUpon>wfmPuesto_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Puesto\wfmPuesto_Add.aspx.vb">
+      <DependentUpon>wfmPuesto_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Puesto\wfmPuesto_Edit.aspx.designer.vb">
+      <DependentUpon>wfmPuesto_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Puesto\wfmPuesto_Edit.aspx.vb">
+      <DependentUpon>wfmPuesto_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Puesto\wfmPuesto_List.aspx.designer.vb">
+      <DependentUpon>wfmPuesto_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Puesto\wfmPuesto_List.aspx.vb">
+      <DependentUpon>wfmPuesto_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Quejas\wfmQuejas_Add.aspx.designer.vb">
+      <DependentUpon>wfmQuejas_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Quejas\wfmQuejas_Add.aspx.vb">
+      <DependentUpon>wfmQuejas_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Quejas\wfmQuejas_Edit.aspx.designer.vb">
+      <DependentUpon>wfmQuejas_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Quejas\wfmQuejas_Edit.aspx.vb">
+      <DependentUpon>wfmQuejas_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Quejas\wfmQuejas_List.aspx.designer.vb">
+      <DependentUpon>wfmQuejas_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Quejas\wfmQuejas_List.aspx.vb">
+      <DependentUpon>wfmQuejas_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_Add.aspx.designer.vb">
+      <DependentUpon>wfmRequisitosSubServicios_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_Add.aspx.vb">
+      <DependentUpon>wfmRequisitosSubServicios_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_Edit.aspx.designer.vb">
+      <DependentUpon>wfmRequisitosSubServicios_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_Edit.aspx.vb">
+      <DependentUpon>wfmRequisitosSubServicios_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_List.aspx.designer.vb">
+      <DependentUpon>wfmRequisitosSubServicios_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_List.aspx.vb">
+      <DependentUpon>wfmRequisitosSubServicios_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_Add.aspx.designer.vb">
+      <DependentUpon>wfmRequisitos_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_Add.aspx.vb">
+      <DependentUpon>wfmRequisitos_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_Edit.aspx.designer.vb">
+      <DependentUpon>wfmRequisitos_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_Edit.aspx.vb">
+      <DependentUpon>wfmRequisitos_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_List.aspx.designer.vb">
+      <DependentUpon>wfmRequisitos_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_List.aspx.vb">
+      <DependentUpon>wfmRequisitos_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Servicios\wfmServicios_Add.aspx.designer.vb">
+      <DependentUpon>wfmServicios_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Servicios\wfmServicios_Add.aspx.vb">
+      <DependentUpon>wfmServicios_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Servicios\wfmServicios_Edit.aspx.designer.vb">
+      <DependentUpon>wfmServicios_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Servicios\wfmServicios_Edit.aspx.vb">
+      <DependentUpon>wfmServicios_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Servicios\wfmServicios_List.aspx.designer.vb">
+      <DependentUpon>wfmServicios_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Servicios\wfmServicios_List.aspx.vb">
+      <DependentUpon>wfmServicios_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_Add.aspx.designer.vb">
+      <DependentUpon>wfmSubServicios_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_Add.aspx.vb">
+      <DependentUpon>wfmSubServicios_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_Edit.aspx.designer.vb">
+      <DependentUpon>wfmSubServicios_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_Edit.aspx.vb">
+      <DependentUpon>wfmSubServicios_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_List.aspx.designer.vb">
+      <DependentUpon>wfmSubServicios_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_List.aspx.vb">
+      <DependentUpon>wfmSubServicios_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_Add.aspx.designer.vb">
+      <DependentUpon>wfmTratamiento_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_Add.aspx.vb">
+      <DependentUpon>wfmTratamiento_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_Edit.aspx.designer.vb">
+      <DependentUpon>wfmTratamiento_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_Edit.aspx.vb">
+      <DependentUpon>wfmTratamiento_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_List.aspx.designer.vb">
+      <DependentUpon>wfmTratamiento_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_List.aspx.vb">
+      <DependentUpon>wfmTratamiento_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Menu\wfmMenu_Add.aspx.designer.vb">
+      <DependentUpon>wfmMenu_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Menu\wfmMenu_Add.aspx.vb">
+      <DependentUpon>wfmMenu_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Menu\wfmMenu_List.aspx.designer.vb">
+      <DependentUpon>wfmMenu_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Menu\wfmMenu_List.aspx.vb">
+      <DependentUpon>wfmMenu_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Menu\wfmMenu_Edit.aspx.designer.vb">
+      <DependentUpon>wfmMenu_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Menu\wfmMenu_Edit.aspx.vb">
+      <DependentUpon>wfmMenu_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_Edit.aspx.designer.vb">
+      <DependentUpon>wfmRolMenu_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_Edit.aspx.vb">
+      <DependentUpon>wfmRolMenu_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_List.aspx.designer.vb">
+      <DependentUpon>wfmRolMenu_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_List.aspx.vb">
+      <DependentUpon>wfmRolMenu_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_Add.aspx.designer.vb">
+      <DependentUpon>wfmRolMenu_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_Add.aspx.vb">
+      <DependentUpon>wfmRolMenu_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Rol\wfmRol_Add.aspx.designer.vb">
+      <DependentUpon>wfmRol_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Rol\wfmRol_Add.aspx.vb">
+      <DependentUpon>wfmRol_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Rol\wfmRol_Edit.aspx.designer.vb">
+      <DependentUpon>wfmRol_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Rol\wfmRol_Edit.aspx.vb">
+      <DependentUpon>wfmRol_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Rol\wfmRol_List.aspx.designer.vb">
+      <DependentUpon>wfmRol_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\Rol\wfmRol_List.aspx.vb">
+      <DependentUpon>wfmRol_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\usuario\wfmUsuario_Edit.aspx.designer.vb">
+      <DependentUpon>wfmUsuario_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\usuario\wfmUsuario_Edit.aspx.vb">
+      <DependentUpon>wfmUsuario_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\usuario\wfmUsuario_List.aspx.designer.vb">
+      <DependentUpon>wfmUsuario_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\usuario\wfmUsuario_List.aspx.vb">
+      <DependentUpon>wfmUsuario_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\usuario\wfmUsuario_Add.aspx.designer.vb">
+      <DependentUpon>wfmUsuario_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Seguridad\usuario\wfmUsuario_Add.aspx.vb">
+      <DependentUpon>wfmUsuario_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Mensaje.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenes_Add.aspx.designer.vb">
+      <DependentUpon>wfmDictamenes_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenes_Add.aspx.vb">
+      <DependentUpon>wfmDictamenes_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenes_Edit.aspx.designer.vb">
+      <DependentUpon>wfmDictamenes_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenes_Edit.aspx.vb">
+      <DependentUpon>wfmDictamenes_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenes_List.aspx.designer.vb">
+      <DependentUpon>wfmDictamenes_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Dictamenes\wfmDictamenes_List.aspx.vb">
+      <DependentUpon>wfmDictamenes_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResoluciones_Add.aspx.designer.vb">
+      <DependentUpon>wfmResoluciones_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResoluciones_Add.aspx.vb">
+      <DependentUpon>wfmResoluciones_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResoluciones_Edit.aspx.designer.vb">
+      <DependentUpon>wfmResoluciones_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResoluciones_Edit.aspx.vb">
+      <DependentUpon>wfmResoluciones_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResoluciones_List.aspx.designer.vb">
+      <DependentUpon>wfmResoluciones_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\Resoluciones\wfmResoluciones_List.aspx.vb">
+      <DependentUpon>wfmResoluciones_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Propiedades.Master.designer.vb">
+      <DependentUpon>Propiedades.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Propiedades.Master.vb">
+      <DependentUpon>Propiedades.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_Add.aspx.designer.vb">
+      <DependentUpon>wfmAcuerdoEdicto_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_Add.aspx.vb">
+      <DependentUpon>wfmAcuerdoEdicto_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_Edit.aspx.designer.vb">
+      <DependentUpon>wfmAcuerdoEdicto_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_Edit.aspx.vb">
+      <DependentUpon>wfmAcuerdoEdicto_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_List.aspx.designer.vb">
+      <DependentUpon>wfmAcuerdoEdicto_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_List.aspx.vb">
+      <DependentUpon>wfmAcuerdoEdicto_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Autenticas\wfmAutenticas_Add.aspx.designer.vb">
+      <DependentUpon>wfmAutenticas_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Autenticas\wfmAutenticas_Add.aspx.vb">
+      <DependentUpon>wfmAutenticas_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Autenticas\wfmAutenticas_Edit.aspx.designer.vb">
+      <DependentUpon>wfmAutenticas_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Autenticas\wfmAutenticas_Edit.aspx.vb">
+      <DependentUpon>wfmAutenticas_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Autenticas\wfmAutenticas_List.aspx.designer.vb">
+      <DependentUpon>wfmAutenticas_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Autenticas\wfmAutenticas_List.aspx.vb">
+      <DependentUpon>wfmAutenticas_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\DispensasEdicto\wfmDispensaEdicto_Add.aspx.designer.vb">
+      <DependentUpon>wfmDispensaEdicto_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\DispensasEdicto\wfmDispensaEdicto_Add.aspx.vb">
+      <DependentUpon>wfmDispensaEdicto_Add.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\DispensasEdicto\wfmDispensaEdicto_Edit.aspx.designer.vb">
+      <DependentUpon>wfmDispensaEdicto_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\DispensasEdicto\wfmDispensaEdicto_Edit.aspx.vb">
+      <DependentUpon>wfmDispensaEdicto_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\DispensasEdicto\wfmDispensaEdicto_List.aspx.designer.vb">
+      <DependentUpon>wfmDispensaEdicto_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\DispensasEdicto\wfmDispensaEdicto_List.aspx.vb">
+      <DependentUpon>wfmDispensaEdicto_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\Publico\wfmDetExpedientePublico.aspx.designer.vb">
+      <DependentUpon>wfmDetExpedientePublico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\Publico\wfmDetExpedientePublico.aspx.vb">
+      <DependentUpon>wfmDetExpedientePublico.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmArchivar.aspx.designer.vb">
+      <DependentUpon>wfmArchivar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmArchivar.aspx.vb">
+      <DependentUpon>wfmArchivar.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmArchivoAdjuntos.aspx.designer.vb">
+      <DependentUpon>wfmArchivoAdjuntos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmArchivoAdjuntos.aspx.vb">
+      <DependentUpon>wfmArchivoAdjuntos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteEncabezado.aspx.designer.vb">
+      <DependentUpon>wfmExpedienteEncabezado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteEncabezado.aspx.vb">
+      <DependentUpon>wfmExpedienteEncabezado.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteRequisitos_View.aspx.designer.vb">
+      <DependentUpon>wfmExpedienteRequisitos_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteRequisitos_View.aspx.vb">
+      <DependentUpon>wfmExpedienteRequisitos_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmCambiarEncargadoExpediente_Prop.aspx.designer.vb">
+      <DependentUpon>wfmCambiarEncargadoExpediente_Prop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmCambiarEncargadoExpediente_Prop.aspx.vb">
+      <DependentUpon>wfmCambiarEncargadoExpediente_Prop.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmEvaluarDictamen_List.aspx.designer.vb">
+      <DependentUpon>wfmEvaluarDictamen_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmEvaluarDictamen_List.aspx.vb">
+      <DependentUpon>wfmEvaluarDictamen_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmEvaluarResolucion_List.aspx.designer.vb">
+      <DependentUpon>wfmEvaluarResolucion_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmEvaluarResolucion_List.aspx.vb">
+      <DependentUpon>wfmEvaluarResolucion_List.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteMantenimiento.aspx.designer.vb">
+      <DependentUpon>wfmExpedienteMantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteMantenimiento.aspx.vb">
+      <DependentUpon>wfmExpedienteMantenimiento.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\WfmExpediente_List.aspx.designer.vb">
+      <DependentUpon>WfmExpediente_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\WfmExpediente_List.aspx.vb">
+      <DependentUpon>WfmExpediente_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmComentarios.aspx.designer.vb">
+      <DependentUpon>wfmComentarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmComentarios.aspx.vb">
+      <DependentUpon>wfmComentarios.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpediente_Add.aspx.designer.vb">
+      <DependentUpon>wfmExpediente_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpediente_Add.aspx.vb">
+      <DependentUpon>wfmExpediente_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpediente_Edit.aspx.designer.vb">
+      <DependentUpon>wfmExpediente_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpediente_Edit.aspx.vb">
+      <DependentUpon>wfmExpediente_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\Publico\wfmPropiedadesExpedientePublico.aspx.designer.vb">
+      <DependentUpon>wfmPropiedadesExpedientePublico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\Publico\wfmPropiedadesExpedientePublico.aspx.vb">
+      <DependentUpon>wfmPropiedadesExpedientePublico.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmSeguimientoExpediente.aspx.designer.vb">
+      <DependentUpon>wfmSeguimientoExpediente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmSeguimientoExpediente.aspx.vb">
+      <DependentUpon>wfmSeguimientoExpediente.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteEstado_Edit.aspx.designer.vb">
+      <DependentUpon>wfmExpedienteEstado_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro\Expediente\wfmExpedienteEstado_Edit.aspx.vb">
+      <DependentUpon>wfmExpedienteEstado_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\cImpresionDirecta.vb" />
+    <Compile Include="Reportes\ExReporter.aspx.designer.vb">
+      <DependentUpon>ExReporter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ExReporter.aspx.vb">
+      <DependentUpon>ExReporter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\wfrmRepAutenticas.aspx.designer.vb">
+      <DependentUpon>wfrmRepAutenticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\wfrmRepAutenticas.aspx.vb">
+      <DependentUpon>wfrmRepAutenticas.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Simex_DesDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Simex_DesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SortableUserControl.ascx.designer.vb">
+      <DependentUpon>SortableUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SortableUserControl.ascx.vb">
+      <DependentUpon>SortableUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubMenu.Master.designer.vb">
+      <DependentUpon>SubMenu.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenu.Master.vb">
+      <DependentUpon>SubMenu.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controles\TextBox.ascx.designer.vb">
+      <DependentUpon>TextBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\TextBox.ascx.vb">
+      <DependentUpon>TextBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="Autenticacion\Confirmacion.aspx" />
+    <Content Include="Autenticacion\Login.aspx" />
+    <Content Include="Autenticacion\RecuperarClave.aspx" />
+    <Content Include="Controles\Comentarios.ascx" />
+    <Content Include="Controles\DateControl.ascx" />
+    <Content Include="Controles\messageBox.ascx" />
+    <Content Include="Controles\modal.css" />
+    <Content Include="Controles\SolicitanteResponsable.ascx" />
+    <Content Include="Error.html" />
+    <Content Include="Estadisticas\Default.aspx" />
+    <Content Include="Estadisticas\Resoluciones.ascx" />
+    <Content Include="Estadisticas\Dictamenes.ascx" />
+    <Content Include="Estadisticas\Expedientes.ascx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Otros\LibroRegistro\wfmRegistroInformesConst.aspx" />
+    <Content Include="Registro\Expediente\MovimientoMasivoAdmin.aspx" />
+    <Content Include="URSAC\Tramites.aspx" />
+    <Content Include="Fotos\oficial.png" />
+    <Content Include="Imagenes\add-icon.png" />
+    <Content Include="Imagenes\caratula.png" />
+    <Content Include="Imagenes\comprobante.png" />
+    <Content Include="Imagenes\Confirmacion.jpg" />
+    <Content Include="Imagenes\constancia.png" />
+    <Content Include="Imagenes\down.png" />
+    <Content Include="Imagenes\ExplorerNav.jpg" />
+    <Content Include="Imagenes\footer_bg.png" />
+    <Content Include="Imagenes\good.png" />
+    <Content Include="Imagenes\grid_editar.png" />
+    <Content Include="Imagenes\grid_eliminar.png" />
+    <Content Include="Imagenes\hd-bg.png" />
+    <Content Include="Imagenes\juntadirectiva.png" />
+    <Content Include="Imagenes\LibroRegistro.jpg" />
+    <Content Include="Imagenes\LibroRegistro2.jpg" />
+    <Content Include="Imagenes\ListViewItem.png" />
+    <Content Include="Imagenes\logoURSAC.jpg" />
+    <Content Include="Imagenes\minus.png" />
+    <Content Include="Imagenes\modal_close.png" />
+    <Content Include="Imagenes\oficial.png" />
+    <Content Include="Imagenes\password_icon.png" />
+    <Content Include="Imagenes\plus.png" />
+    <Content Include="Imagenes\save.png" />
+    <Content Include="Imagenes\simex_fondo.jpg" />
+    <Content Include="Imagenes\toolbar_bg.png" />
+    <Content Include="Imagenes\up.png" />
+    <Content Include="Imagenes\validate-icon.png" />
+    <Content Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\DiasFestivos\wfmDiasFestivos_List.aspx" />
+    <Content Include="Otros\Acreditaciones\AcreditacionRep.aspx" />
+    <Content Include="Otros\Acreditaciones\wfmAcreditaciones_Add.aspx" />
+    <Content Include="Otros\Acreditaciones\wfmAcreditaciones_Edit.aspx" />
+    <Content Include="Otros\Acreditaciones\wfmAcreditaciones_List.aspx" />
+    <Content Include="Otros\LibroRegistro\wfmLibroRegistroMiembro_Add.aspx" />
+    <Content Include="Otros\LibroRegistro\wfmLibroRegistroMiembro_Edit.aspx" />
+    <Content Include="Otros\LibroRegistro\wfmLibroRegistro_Add.aspx" />
+    <Content Include="Otros\LibroRegistro\wfmLibroRegistro_Edit.aspx" />
+    <Content Include="Otros\LibroRegistro\wfmLibroRegistro_List.aspx" />
+    <Content Include="Otros\LibroRegistro\wfmLibroRegistroJuntaDirectiva.aspx" />
+    <Content Include="Otros\wfmDicResMas.aspx" />
+    <Content Include="Registro\Expediente\ApoderadoEmail.aspx" />
+    <Content Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_Add.aspx" />
+    <Content Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_Edit.aspx" />
+    <Content Include="Mantenimientos\URSAC\PuestosJuntaDirectiva\wfmPuestosJuntaDirectiva_List.aspx" />
+    <Content Include="Mantenimientos\URSAC\Rubro\wfmRubro_Add.aspx" />
+    <Content Include="Mantenimientos\URSAC\Rubro\wfmRubro_Edit.aspx" />
+    <Content Include="Mantenimientos\URSAC\Rubro\wfmRubro_List.aspx" />
+    <Content Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_Add.aspx" />
+    <Content Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_Edit.aspx" />
+    <Content Include="Mantenimientos\URSAC\Subtipo\wfmSubtipo_List.aspx" />
+    <Content Include="Mantenimientos\URSAC\Tipo\wfmTipo_Add.aspx" />
+    <Content Include="Mantenimientos\URSAC\Tipo\wfmTipo_Edit.aspx" />
+    <Content Include="Mantenimientos\URSAC\Tipo\wfmTipo_List.aspx" />
+    <Content Include="Modal.css" />
+    <Content Include="Otros\Dictamenes\wfmDictamenesEsp_Add.aspx" />
+    <Content Include="Scripts\jquery.leanModal.min.js" />
+    <Content Include="Styles\StyleDash.css" />
+    <Content Include="Styles\styles.css" />
+    <Content Include="Styles\TreeView.SalesBlack.css" />
+    <Content Include="Styles\TreeView\BottomLine.png" />
+    <Content Include="Styles\TreeView\FirstNodeSpan.png" />
+    <Content Include="Styles\TreeView\MiddleLine.png" />
+    <Content Include="Styles\TreeView\NodeSpan.png" />
+    <Content Include="Styles\TreeView\NodeStates.png" />
+    <Content Include="Styles\TreeView\SingleLine.png" />
+    <Content Include="Styles\TreeView\TopLine.png" />
+    <Content Include="Styles\TreeView\TriState.png" />
+    <Content Include="URSAC\rHistoricoJD.aspx" />
+    <Content Include="URSAC\Tramites\wfmTramites_Add.aspx" />
+    <Content Include="URSAC\Tramites\wfmTramites_Edit.aspx" />
+    <Content Include="URSAC\Tramites\wfmTramites_List.aspx" />
+    <Content Include="URSAC\URSACReportes.aspx" />
+    <Content Include="URSAC\wfmAsociacionesCivilesMiembro_Add.aspx" />
+    <Content Include="URSAC\wfmAsociacionesCivilesMiembro_Edit.aspx" />
+    <Content Include="URSAC\wfmAsociacionesCivilesEstado_Edit.aspx" />
+    <Content Include="URSAC\wfmRegistroEstadoFinanciero.aspx" />
+    <Content Include="URSAC\wfmRegistroJuntaDirectiva.aspx" />
+    <Content Include="URSAC\wfmRegistroResoluciones.aspx" />
+    <Content Include="URSAC\wfmRegistroResolucionesReformas.aspx" />
+    <Content Include="URSAC\wfmRegistroInformesConst.aspx" />
+    <Content Include="URSAC\wfmRegistroTramitesEnLinea.aspx" />
+    <Content Include="URSAC\wfmRegistroRubro.aspx" />
+    <Content Include="URSAC\wfmAsociacionesCiviles_List.aspx" />
+    <Content Include="URSAC\wfmAsociacionesCiviles_Add.aspx" />
+    <Content Include="URSAC\wfmAsociacionesCiviles_Edit.aspx" />
+    <Content Include="URSAC\wfmSeguimientoRegistro.aspx" />
+    <Content Include="Usuario.aspx" />
+    <Content Include="Imagenes\permiso.jpg" />
+    <Content Include="Imagenes\print.png" />
+    <Content Include="Imagenes\ribbon_orange.png" />
+    <Content Include="Otros\Resoluciones\wfmResolucionesEsp_Add.aspx" />
+    <Content Include="Permiso.aspx" />
+    <Content Include="Default.aspx" />
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="Imagenes\Buscar.png" />
+    <Content Include="Registro\Expediente\RecepcionMasiva.aspx" />
+    <Content Include="Registro\Expediente\MovimientoMasivo.aspx" />
+    <Content Include="Reportes\wfrmRepConstancias.aspx" />
+    <Content Include="Global.asax" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Content Include="GridStyle\grd_alt.png" />
+    <Content Include="GridStyle\grd_head.png" />
+    <Content Include="GridStyle\grd_pgr.png" />
+    <Content Include="GridStyle\GridStyle.css" />
+    <Content Include="Imagenes\eliminar.gif" />
+    <Content Include="Imagenes\EnviadoSinRecibir.png" />
+    <Content Include="Imagenes\Icono_borrar.png" />
+    <Content Include="Imagenes\icon_edit.png" />
+    <Content Include="Imagenes\ImgCalendario.png" />
+    <Content Include="Controles\ComboBox.ascx" />
+    <Content Include="Imagenes\PrintFile.png" />
+    <Content Include="Imagenes\SinEnviar.png" />
+    <Content Include="Imagenes\SinRecibir.png" />
+    <Content Include="Imagenes\user.png" />
+    <Content Include="Ingresos\Mensuales\IngresosMensuales.aspx" />
+    <Content Include="Ingresos\Recibo\wfmReciboAdd.aspx" />
+    <Content Include="Ingresos\Recibo\wfmRecibo_Add.aspx" />
+    <Content Include="Ingresos\Recibo\wfmRecibo_Edit.aspx" />
+    <Content Include="Ingresos\Recibo\wfmRecibo_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Apoderados\wfmApoderados_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Apoderados\wfmApoderados_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Apoderados\wfmApoderados_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Cliente\wfmCliente_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Cliente\wfmCliente_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Cliente\wfmCliente_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Constancia\wfmConstancia_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Constancia\wfmConstancia_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Constancia\wfmConstancia_list.aspx" />
+    <Content Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\DepartamentoOficina\wfmDepartamentoOficina_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Departamento\wfmDepartamento_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Departamento\wfmDepartamento_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Departamento\wfmDepartamento_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Empleados\wfmEmpleados_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Empleados\wfmEmpleados_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Empleados\wfmEmpleados_List.aspx" />
+    <Content Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\EstadosRol\wfmEstadosRol_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Estado\wfmEstado_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Estado\wfmEstado_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Estado\wfmEstado_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Firma\wfmFirma_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Firma\wfmFirma_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Firma\wfmFirma_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Instituciones\wfmInstituciones_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Municipio\wfmMunicipio_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Municipio\wfmMunicipio_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Municipio\wfmMunicipio_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Oficina\wfmOficina_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Oficina\wfmOficina_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Oficina\wfmOficina_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Paises\wfmPaises_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Paises\wfmPaises_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Paises\wfmPaises_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Profesiones\wfmProfesiones_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Puesto\wfmPuesto_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Puesto\wfmPuesto_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Puesto\wfmPuesto_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Quejas\wfmQuejas_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Quejas\wfmQuejas_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Quejas\wfmQuejas_List.aspx" />
+    <Content Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\RequisitosSubServicios\wfmRequisitosSubServicios_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Requisitos\wfmRequisitos_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Servicios\wfmServicios_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Servicios\wfmServicios_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Servicios\wfmServicios_List.aspx" />
+    <Content Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\SubServicios\wfmSubServicios_List.aspx" />
+    <Content Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_Add.aspx" />
+    <Content Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_Edit.aspx" />
+    <Content Include="Mantenimientos\Generales\Tratamientos\wfmTratamiento_List.aspx" />
+    <Content Include="Mantenimientos\Seguridad\Menu\wfmMenu_Add.aspx" />
+    <Content Include="Mantenimientos\Seguridad\Menu\wfmMenu_List.aspx" />
+    <Content Include="Mantenimientos\Seguridad\Menu\wfmMenu_Edit.aspx" />
+    <Content Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_Edit.aspx" />
+    <Content Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_List.aspx" />
+    <Content Include="Mantenimientos\Seguridad\RolMenu\wfmRolMenu_Add.aspx" />
+    <Content Include="Mantenimientos\Seguridad\Rol\wfmRol_Add.aspx" />
+    <Content Include="Mantenimientos\Seguridad\Rol\wfmRol_Edit.aspx" />
+    <Content Include="Mantenimientos\Seguridad\Rol\wfmRol_List.aspx" />
+    <Content Include="Mantenimientos\Seguridad\usuario\wfmUsuario_Edit.aspx" />
+    <Content Include="Mantenimientos\Seguridad\usuario\wfmUsuario_List.aspx" />
+    <Content Include="Mantenimientos\Seguridad\usuario\wfmUsuario_Add.aspx" />
+    <Content Include="Otros\Dictamenes\wfmDictamenes_Add.aspx" />
+    <Content Include="Otros\Dictamenes\wfmDictamenes_Edit.aspx" />
+    <Content Include="Otros\Dictamenes\wfmDictamenes_List.aspx" />
+    <Content Include="Otros\Resoluciones\wfmResoluciones_Add.aspx" />
+    <Content Include="Otros\Resoluciones\wfmResoluciones_Edit.aspx" />
+    <Content Include="Otros\Resoluciones\wfmResoluciones_List.aspx" />
+    <Content Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_Add.aspx" />
+    <Content Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_Edit.aspx" />
+    <Content Include="Registro\AcuerdosEdicto\wfmAcuerdoEdicto_List.aspx" />
+    <Content Include="Registro\Autenticas\wfmAutenticas_Add.aspx" />
+    <Content Include="Registro\Autenticas\wfmAutenticas_Edit.aspx" />
+    <Content Include="Registro\Autenticas\wfmAutenticas_List.aspx" />
+    <Content Include="Registro\DispensasEdicto\wfmDispensaEdicto_Add.aspx" />
+    <Content Include="Registro\DispensasEdicto\wfmDispensaEdicto_Edit.aspx" />
+    <Content Include="Registro\DispensasEdicto\wfmDispensaEdicto_List.aspx" />
+    <Content Include="Registro\Expediente\Publico\wfmDetExpedientePublico.aspx" />
+    <Content Include="Registro\Expediente\wfmArchivar.aspx" />
+    <Content Include="Registro\Expediente\wfmArchivoAdjuntos.aspx" />
+    <Content Include="Registro\Expediente\wfmExpedienteEncabezado.aspx" />
+    <Content Include="Registro\Expediente\wfmExpedienteRequisitos_View.aspx" />
+    <Content Include="Registro\Expediente\wfmCambiarEncargadoExpediente_Prop.aspx" />
+    <Content Include="Registro\Expediente\wfmEvaluarDictamen_List.aspx" />
+    <Content Include="Registro\Expediente\wfmEvaluarResolucion_List.aspx" />
+    <Content Include="Registro\Expediente\wfmExpedienteMantenimiento.aspx" />
+    <Content Include="Registro\Expediente\WfmExpediente_List.aspx" />
+    <Content Include="Registro\Expediente\wfmComentarios.aspx" />
+    <Content Include="Registro\Expediente\wfmExpediente_Add.aspx" />
+    <Content Include="Registro\Expediente\wfmExpediente_Edit.aspx" />
+    <Content Include="Registro\Expediente\Publico\wfmPropiedadesExpedientePublico.aspx" />
+    <Content Include="Registro\Expediente\wfmSeguimientoExpediente.aspx" />
+    <Content Include="Registro\Expediente\wfmExpedienteEstado_Edit.aspx" />
+    <Content Include="Reportes\ExReporter.aspx" />
+    <Content Include="Reportes\wfrmRepAutenticas.aspx" />
+    <Content Include="Site.css" />
+    <Content Include="Site.master" />
+    <Compile Include="Site.master.designer.vb">
+      <DependentUpon>Site.master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.master.vb">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="SortableUserControl.ascx" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <Content Include="DynamicData\web.config" />
+    <Content Include="DynamicData\Content\Images\Back.gif" />
+    <Content Include="DynamicData\Content\Images\header_back.gif" />
+    <Content Include="DynamicData\Content\Images\PgFirst.gif" />
+    <Content Include="DynamicData\Content\Images\PgLast.gif" />
+    <Content Include="DynamicData\Content\Images\PgNext.gif" />
+    <Content Include="DynamicData\Content\Images\PgPrev.gif" />
+    <Content Include="DynamicData\Content\Images\plus.gif" />
+    <Content Include="DynamicData\EntityTemplates\Default.ascx" />
+    <Compile Include="DynamicData\EntityTemplates\Default.ascx.designer.vb">
+      <DependentUpon>Default.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\EntityTemplates\Default.ascx.vb">
+      <DependentUpon>Default.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\EntityTemplates\Default_Edit.ascx" />
+    <Compile Include="DynamicData\EntityTemplates\Default_Edit.ascx.designer.vb">
+      <DependentUpon>Default_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\EntityTemplates\Default_Edit.ascx.vb">
+      <DependentUpon>Default_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\EntityTemplates\Default_Insert.ascx" />
+    <Compile Include="DynamicData\EntityTemplates\Default_Insert.ascx.designer.vb">
+      <DependentUpon>Default_Insert.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\EntityTemplates\Default_Insert.ascx.vb">
+      <DependentUpon>Default_Insert.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Boolean.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Boolean.ascx.designer.vb">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean.ascx.vb">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Boolean_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Boolean_Edit.ascx.designer.vb">
+      <DependentUpon>Boolean_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Boolean_Edit.ascx.vb">
+      <DependentUpon>Boolean_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Children.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Children.ascx.designer.vb">
+      <DependentUpon>Children.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children.ascx.vb">
+      <DependentUpon>Children.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Children_Insert.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Children_Insert.ascx.designer.vb">
+      <DependentUpon>Children_Insert.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Children_Insert.ascx.vb">
+      <DependentUpon>Children_Insert.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\DateTime.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\DateTime.ascx.designer.vb">
+      <DependentUpon>DateTime.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime.ascx.vb">
+      <DependentUpon>DateTime.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\DateTime_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\DateTime_Edit.ascx.designer.vb">
+      <DependentUpon>DateTime_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\DateTime_Edit.ascx.vb">
+      <DependentUpon>DateTime_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Decimal_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Decimal_Edit.ascx.designer.vb">
+      <DependentUpon>Decimal_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Decimal_Edit.ascx.vb">
+      <DependentUpon>Decimal_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\EmailAddress.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\EmailAddress.ascx.designer.vb">
+      <DependentUpon>EmailAddress.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\EmailAddress.ascx.vb">
+      <DependentUpon>EmailAddress.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Enumeration.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Enumeration.ascx.designer.vb">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration.ascx.vb">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx.designer.vb">
+      <DependentUpon>Enumeration_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Enumeration_Edit.ascx.vb">
+      <DependentUpon>Enumeration_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\ForeignKey.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey.ascx.designer.vb">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey.ascx.vb">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx.designer.vb">
+      <DependentUpon>ForeignKey_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ForeignKey_Edit.ascx.vb">
+      <DependentUpon>ForeignKey_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Integer_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Integer_Edit.ascx.designer.vb">
+      <DependentUpon>Integer_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Integer_Edit.ascx.vb">
+      <DependentUpon>Integer_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\ManyToMany.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\ManyToMany.ascx.designer.vb">
+      <DependentUpon>ManyToMany.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ManyToMany.ascx.vb">
+      <DependentUpon>ManyToMany.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\ManyToMany_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\ManyToMany_Edit.ascx.designer.vb">
+      <DependentUpon>ManyToMany_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\ManyToMany_Edit.ascx.vb">
+      <DependentUpon>ManyToMany_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx.designer.vb">
+      <DependentUpon>MultilineText_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\MultilineText_Edit.ascx.vb">
+      <DependentUpon>MultilineText_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Text.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Text.ascx.designer.vb">
+      <DependentUpon>Text.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text.ascx.vb">
+      <DependentUpon>Text.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Text_Edit.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Text_Edit.ascx.designer.vb">
+      <DependentUpon>Text_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Text_Edit.ascx.vb">
+      <DependentUpon>Text_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\FieldTemplates\Url.ascx" />
+    <Compile Include="DynamicData\FieldTemplates\Url.ascx.designer.vb">
+      <DependentUpon>Url.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\FieldTemplates\Url.ascx.vb">
+      <DependentUpon>Url.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\Filters\Boolean.ascx" />
+    <Compile Include="DynamicData\Filters\Boolean.ascx.designer.vb">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\Filters\Boolean.ascx.vb">
+      <DependentUpon>Boolean.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\Filters\Enumeration.ascx" />
+    <Compile Include="DynamicData\Filters\Enumeration.ascx.designer.vb">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\Filters\Enumeration.ascx.vb">
+      <DependentUpon>Enumeration.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\Filters\ForeignKey.ascx" />
+    <Compile Include="DynamicData\Filters\ForeignKey.ascx.designer.vb">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\Filters\ForeignKey.ascx.vb">
+      <DependentUpon>ForeignKey.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\PageTemplates\Details.aspx" />
+    <Compile Include="DynamicData\PageTemplates\Details.aspx.designer.vb">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\PageTemplates\Details.aspx.vb">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\PageTemplates\Edit.aspx" />
+    <Compile Include="DynamicData\PageTemplates\Edit.aspx.designer.vb">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\PageTemplates\Edit.aspx.vb">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\PageTemplates\Insert.aspx" />
+    <Compile Include="DynamicData\PageTemplates\Insert.aspx.designer.vb">
+      <DependentUpon>Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\PageTemplates\Insert.aspx.vb">
+      <DependentUpon>Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\PageTemplates\List.aspx" />
+    <Compile Include="DynamicData\PageTemplates\List.aspx.designer.vb">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\PageTemplates\List.aspx.vb">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Content Include="DynamicData\PageTemplates\ListDetails.aspx" />
+    <Compile Include="DynamicData\PageTemplates\ListDetails.aspx.designer.vb">
+      <DependentUpon>ListDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicData\PageTemplates\ListDetails.aspx.vb">
+      <DependentUpon>ListDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Content Include="Controles\TextBox.ascx" />
+    <Content Include="Consulta.Master" />
+    <EmbeddedResource Include="ReportesEspeciales\rACPorDepartamento.resx">
+      <DependentUpon>rACPorDepartamento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesEspeciales\AsociacionesCiviles.resx">
+      <DependentUpon>AsociacionesCiviles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesEspeciales\rHistoricoJD.resx">
+      <DependentUpon>rHistoricoJD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Comprobante.resx">
+      <DependentUpon>Comprobante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rAcreditacion.resx">
+      <DependentUpon>rAcreditacion.vb</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptAutentica.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptConstRecibo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptAcreditacion.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptPortadaM.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptPortadaVarios.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptRequisitosSubReport.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_RegistrosEstFinVigente.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_RegistrosSinEstFin.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_RegistrosJDVigenteA.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_RegistrosSinJD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ReporteHistoricoJD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ReporteJD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ReporteFIN.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ConstanciaREG.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ConstanciaJD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ConstanciaFIN.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_Portada.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptUR_ComprobanteSimple.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptComprobanteSimpleVarios.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptConstanciaE.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptComprobanteSimple.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptComprobante.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptPortada.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="My Project\app.manifest" />
+    <Content Include="dsTramites.xsc">
+      <DependentUpon>dsTramites.xsd</DependentUpon>
+    </Content>
+    <None Include="dsTramites.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTramites.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="dsTramites.xss">
+      <DependentUpon>dsTramites.xsd</DependentUpon>
+    </Content>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\AssemblyInfo.vb">
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="My Project\PublishProfiles\loc.pubxml" />
+    <None Include="My Project\PublishProfiles\Local.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\PublishProfiles\Profile1.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My</CustomToolNamespace>
+    </None>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Propiedades.Master" />
+    <Content Include="SubMenu.Master" />
+    <Content Include="Simex_DesDataSet.xsc">
+      <DependentUpon>Simex_DesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="Otros\LibroRegistro\LibroSubMenu.Master" />
+    <None Include="Simex_DesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Simex_DesDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Simex_DesDataSet.xss">
+      <DependentUpon>Simex_DesDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="URSAC\URSubMenu.Master" />
+    <Content Include="URSAC\Tramites\TramitesMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Document\" />
+    <Folder Include="DynamicData\CustomPages\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Registro\Expediente\RequisitosExpediente\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Typings\autosize\autosize.d.ts" />
+    <TypeScriptCompile Include="Scripts\Typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\Typings\signalr\signalr.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\prjDatos\prjDatos.vbproj">
+      <Project>{1ebbd877-fc40-4bd3-95c6-c0ead150167a}</Project>
+      <Name>prjDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5410</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5410/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:5410/" workingDir="" />
+          </servers>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

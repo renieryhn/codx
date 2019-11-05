@@ -1,0 +1,30 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Propiedades.master.vb" Inherits="smx.Propiedades" MasterPageFile="~/Site.master" %>
+<%@ MasterType VirtualPath="~/Site.Master"%>
+<asp:Content ID="Content1" runat="server" 
+    contentplaceholderid="ContentPlaceHolder1">
+    <div class="BarraBotones" dir="ltr">
+
+    <table class="style1">
+        <tr>
+            <td>
+                
+                <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" BorderStyle="None" CssClass="BotonNegro" Height="39px" />
+            </td>
+            <td>
+                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" BorderStyle="None" CssClass="BotonNegro" Height="39px" />
+            </td>
+            <td>
+                <asp:Button ID="btnAplicar" runat="server" Text="Aplicar" BorderStyle="None" CssClass="BotonNegro" Height="39px" />
+            </td>
+        </tr>
+    </table>
+</div>
+       <div>
+            <asp:ContentPlaceHolder ID="cphContenido" runat="server">
+            </asp:ContentPlaceHolder>
+      </div>
+
+   
+</asp:Content>
+
+

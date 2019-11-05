@@ -1,0 +1,87 @@
+﻿<%@ Page Title="SIMEX/Modulo de Expedientes" Language="vb" AutoEventWireup="false" MasterPageFile="~/SubMenu.Master" CodeBehind="wfmComentarios.aspx.vb" Inherits="UserControls.wfmComentarios" %>
+<%@ MasterType VirtualPath="~/SubMenu.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register src="~/Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+
+<asp:Content ID="Content1" runat="server" 
+    contentplaceholderid="ContentPlaceHolder1">
+        
+            <asp:Panel runat="server" Width="933px" ID="Panel1" Height="24px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+                        CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" 
+                        AllowSorting="True" DataKeyNames="id" PageSize="15" 
+                        EmptyDataText="No se encontraron registros" >
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkEditar" runat="server" CausesValidation="False" 
+                                        CommandName="Edit" Text="Editar"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField ShowHeader="False">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkEliminar" runat="server" CausesValidation="False" onClientClick="return confirm('Seguro que desea eliminar el registro?');" 
+                                    CommandName="Delete" Text="Eliminar"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Comentario" HeaderText="Comentario" />
+                        <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                        <asp:BoundField DataField="FechaRecepcion" HeaderText="Fecha Recepción" />
+                        <asp:BoundField DataField="RecibidoPor" 
+                                HeaderText="Recibido Por" />
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <EmptyDataRowStyle ForeColor="#FF3300" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerSettings Mode="NextPreviousFirstLast" Position="Top" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+               
+                <br />
+                <asp:Button ID="btnAgregarComentario" runat="server" Text="Comentarios" />
+                <br />
+
+                <asp:Panel runat="server" CssClass="modalPopup" ID="pnlAgregarComentario" Style="display:  inherit;
+                width: 700px; padding: 10px" BackColor="#999999">
+<table style="width: 100%" align="center">
+            
+                <tr>
+                    <td style="width: 129px">
+                        <asp:Label ID="Label11" runat="server" Text="Comentario"></asp:Label>
+                    </td>
+                    <td style="width: 91%">
+                        <uc1:TextBox ID="txtComentarios" runat="server" Height="300" MaxLength="4000" 
+                            width="400" Apariencia="Multiline" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="width: 129px">
+                        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" />
+                    </td>
+                    <td style="width: 91%">
+                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                    </td>
+                </tr>
+                
+             </table>
+</asp:Panel>
+            </asp:Panel>
+              <asp:Button runat="server" ID="hiddenTargetControlForModalPopup" Style="display: none" />
+         <asp:ModalPopupExtender ID="mpeAgregarComentario" runat="server" PopupControlID="pnlAgregarComentario" 
+                  TargetControlID="hiddenTargetControlForModalPopup"    CancelControlID="btnCancelar"
+        RepositionMode="RepositionOnWindowScroll" EnableViewState="True" ViewStateMode="Enabled">
+    </asp:ModalPopupExtender>
+            
+        </asp:Content>
+
+
+

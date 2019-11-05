@@ -1,0 +1,107 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Propiedades.Master" CodeBehind="wfmReciboAdd.aspx.vb" Inherits="UserControls.wfmReciboAdd" %>
+<%@ MasterType VirtualPath="~/Propiedades.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register src="~/Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+<%@ Register src="~/Controles/ComboBox.ascx" tagname="ComboBox" tagprefix="uc2" %>
+<%@ Register src="~/Controles/DateControl.ascx" tagname="DateControl" tagprefix="uc3" %>
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
+    <script type = "text/javascript">
+        var isShift = false;
+        function keyUP(keyCode)
+        {
+            if (keyCode == 16)
+            {
+                isShift = false;
+            }
+        }
+        function isNumeric(keyCode) 
+        {
+            if (keyCode == 16) 
+            {
+                isShift = true;
+            }
+            return ((keyCode >= 48 && keyCode <= 57 || keyCode == 8 || (keyCode >= 96 && keyCode <= 105)) && isShift == false);
+        }
+    </script>
+    <asp:Label ID="lblOficina" runat="server" Text="Oficina"></asp:Label>
+    <uc2:ComboBox ID="cboOficina" runat="server" AutoFill="True" FieldName="idOficina" idFieldName="id" TableName="Oficina"  textFieldName="Nombre" />
+    <br />    
+    <asp:Label ID="lblNumRecibo" runat="server" Text="Número recibo Finanzas"></asp:Label>
+    <asp:TextBox ID="tbxNumRecibo" runat="server" ValidationGroup="Numrecibo" onkeyup = "keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);" ></asp:TextBox>
+    <br />
+    <asp:Label ID="lblNumRecibo2" runat="server" Text="Verificación del recibo"></asp:Label>
+    <asp:TextBox ID="tbxNumRecibo2" runat="server" ValidationGroup="Numrecibo" onkeyup = "keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);"></asp:TextBox>
+    <asp:Label ID="lblMesajeRecibo" runat="server" Text="ingrese correctamente el número de recibo" Visible="False" ForeColor="Red"></asp:Label>
+    <br />
+    <asp:RadioButton ID="rbUsarSubServicio" runat="server" Text="Subservicio Con Expediente" GroupName="SubServicio" Checked="True" />
+    <asp:RadioButton ID="rbUsarSubServicioCombo" runat="server" Text="Escojer Subservicio" GroupName="SubServicio" />
+    <br />
+    <br />
+    <asp:Label ID = "lblFechaEmision" runat="server" Text= "Fecha Emisión"></asp:Label>
+    <uc3:DateControl ID="dcFechaEmision" runat="server" FechaHora="False" 
+        FieldName= "FechaEmision" Obligatorio="False" />
+    <br />
+    <asp:Label ID="lblFechaPago" runat="server" Text="Fecha Pago"></asp:Label>
+    <uc3:DateControl ID="dcFechaPago" runat="server" FechaHora="False" FieldName="FechaPago" />
+    <br />
+    <asp:Label ID="lblExpediente" runat="server" Text="Expediente"></asp:Label>
+    <asp:TextBox ID="tbxIdExpediente" runat="server"></asp:TextBox>
+    <asp:Button ID="btnExpediente" runat="server" Text="Verificar" />
+    <br />
+    <asp:Label ID="lblServicio" runat="server" Text="Servicio" Visible="False">
+    </asp:Label>
+    <uc2:ComboBox ID="cboServicio" runat="server" AutoFill="True" 
+                            FieldName="idServicio" idFieldName="id" postBack="True" TableName="Servicios" 
+                            textFieldName="Nombre" Visible="False" />
+    <br />
+    <asp:Label ID="lblSubServicio" runat="server" Text="Subservicio" Visible="False">
+    </asp:Label>
+    <uc2:ComboBox ID="cboSubServicio" runat="server" AutoFill="False" 
+                            FieldName="idSubServicio" idFieldName="Codigo" idParentComboBox="idServicio" 
+                            TableName="SubServicios" textFieldName="Nombre" 
+                    AditionalCondition="indEstado='A'" postBack="True" Visible="False" />
+    <br />
+    <asp:Label ID="lblCantidad" runat="server" Text="Cantidad"></asp:Label>
+    <asp:TextBox ID="tbxCantidad" runat="server" Text="1" onkeyup = "keyUP(event.keyCode)" onkeydown = "return isNumeric(event.keyCode);"></asp:TextBox>
+    <asp:Button ID="btnCalcular" runat="server" Text="Calcular" />
+    <br />
+    <asp:label ID="lblPrecioEnDollares" runat="server" Text="Valor Dolares"></asp:label>
+    <asp:TextBox ID="tbxPrecioEnDollares" runat="server" ReadOnly="True"></asp:TextBox>
+    <br />
+    <asp:label ID="lblPrecioEnLempiras" runat="server" Text="Valor en Lempiras"></asp:label>
+    <asp:TextBox ID="tbxPrecioEnLempiras" runat="server" ReadOnly="True"></asp:TextBox>
+    <br />
+    <asp:label ID="lblTasaCambio" runat="server" Text="Tasa de Cambio"></asp:label>
+    <asp:TextBox ID="tbxTasaCambio" runat="server" ReadOnly="True"></asp:TextBox>
+    <br />
+    <asp:label ID="lblTotalLempiras" runat="server" Text="Total Lempiras"></asp:label>
+    <asp:TextBox ID="tbxLempiras" runat="server" ReadOnly="True"></asp:TextBox>
+    <br />
+    <asp:RadioButton ID="RadioButton1" runat="server" Checked="True" GroupName="recibo" />
+    <asp:label ID="lblCliente" runat="server" Text="Cliente"></asp:label>
+    <asp:TextBox ID="tbxCliente" runat="server" ReadOnly="True" Width="222px"></asp:TextBox>
+    <asp:label ID="lblClienteKey" runat="server" Visible="False"></asp:label>
+    <asp:label ID="lblClienteValue" runat="server" Visible="False"></asp:label>
+    <br />
+    <asp:RadioButton ID="RadioButton2" runat="server" GroupName="recibo" />
+    <asp:label ID="lblApoderado" runat="server" Text="Apoderado"></asp:label>
+    <asp:TextBox ID="tbxApoderado" runat="server" ReadOnly="True" Width="222px"></asp:TextBox>
+    <asp:label ID="lblApoderadoKey" runat="server" Visible="False"></asp:label>
+    <asp:label ID="lblApoderadoValue" runat="server" Visible="False"></asp:label>
+    <br />
+    <asp:RadioButton ID="RadioButton3" runat="server" GroupName="recibo" />
+    <asp:Label ID="lblTercero" runat="server" Text="Tercero:"></asp:Label>
+    <asp:TextBox ID="tbxTercero" runat="server"></asp:TextBox>
+    <asp:label ID="lblObservacionesTercero" runat="server" Text="Observacion"></asp:label>
+    <asp:TextBox ID="tbxObservacionesTercero" runat="server"></asp:TextBox>
+    <br />
+    <asp:label ID="lblPagado" runat="server" Text="Pagado"></asp:label>
+    <uc2:ComboBox ID="cboEstadoRecibo" runat="server" AutoFill="True" FieldName="indPagado" idFieldName="id" postBack="False" TableName="Si_No" textFieldName="Nombre" />
+    <br />
+    <asp:label ID="lblSubservicioValue" runat="server" Visible="False"></asp:label>
+    <asp:HyperLink ID="linkMain" runat="server" NavigateUrl="~/Ingresos/Recibo/wfmRecibo_List.aspx"  Visible="False">[linkMain]</asp:HyperLink>
+    <asp:HyperLink ID="LinkMe" runat="server" NavigateUrl="~/Ingresos/Recibo/wfmReciboAdd.aspx" Visible="False">[LinkMe]</asp:HyperLink>
+</asp:Content>

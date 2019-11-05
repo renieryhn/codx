@@ -1,0 +1,77 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Propiedades.Master" CodeBehind="wfmExpediente_Edit.aspx.vb" Inherits="UserControls.wfmExpediente_Edit" %>
+<%@ MasterType VirtualPath="~/Propiedades.Master"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register src="~/Controles/TextBox.ascx" tagname="TextBox" tagprefix="uc1" %>
+<%@ Register src="~/Controles/ComboBox.ascx" tagname="ComboBox" tagprefix="uc2" %>
+<%@ Register src="~/Controles/DateControl.ascx" tagname="DateControl" tagprefix="uc3" %>
+<%@ Register src="~/Controles/SolicitanteResponsable.ascx" tagname="SolicitanteResponsable" tagprefix="uc4" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="cphContenido" runat="server">
+<div>
+<asp:Label ID="Label126" runat="server" Text="Número de Expediente"></asp:Label>
+<uc1:TextBox ID="txtCodigoExpediente" runat="server" FieldName="id" 
+                            Habilitado="True" MaxLength="17" Obligatorio="True" SoloLectura="True" />
+</div>
+<div>
+            <uc4:SolicitanteResponsable ID="EncargadoResponsable" runat="server" 
+            MostrarApoderado="True" MostrarCliente="True" MostrarInstitucion="True" 
+            TipoEntidad="Encargado o Responsable" />
+            
+            <uc4:SolicitanteResponsable ID="InteresadoSolicitante" runat="server" 
+                            MostrarApoderado="False" MostrarCliente="True" MostrarInstitucion="True" 
+                            TipoEntidad="Interesado ó Solicitante" />
+          </div>
+          <div>
+                        <asp:Label ID="Label119" runat="server" Font-Bold="True" 
+                            Text="Datos del Expediente:"></asp:Label>                                                                                    
+                                                  
+                        <asp:Label ID="Label120" runat="server" Text="Servicio"></asp:Label>
+                                       
+                        <uc2:ComboBox ID="cboServicio" runat="server" AutoFill="True" 
+                            FieldName="idServicio" idFieldName="id" postBack="True" TableName="Servicios" 
+                            textFieldName="Nombre" />
+
+                        <br />
+
+                        <asp:Label ID="Label121" runat="server" Text="Sub Servicio"></asp:Label>
+               
+                                       
+               <uc2:ComboBox ID="cboSubServicio" runat="server" AutoFill="False" 
+                            FieldName="idSubServicio" idFieldName="Codigo" idParentComboBox="idServicio" 
+                            TableName="SubServicios" textFieldName="Nombre" postBack="True" />
+
+                        <br />
+
+                        <asp:Label ID="Label123" runat="server" Text="Recibo"></asp:Label>
+                        
+                            <uc1:TextBox ID="txtNumRecibo" runat="server" FieldName="NumRecibo" />
+                        <br />
+                        <asp:Label ID="Label122" runat="server" Text="Departamento"></asp:Label>
+                        
+                        <uc2:ComboBox ID="cboDepartamentoExpediente" runat="server" AutoFill="True" 
+                            FieldName="idDepartamento" idFieldName="id" TableName="Departamento" 
+                            textFieldName="Nombre" postBack="True" />
+                        <br />
+                        <asp:Label ID="Label124" runat="server" Text="Municipio"></asp:Label>
+                        
+                        <uc2:ComboBox ID="cboMunicipioExpediente" runat="server" AutoFill="False" 
+                            FieldName="idMunicipio" idFieldName="id" TableName="Municipio" 
+                            textFieldName="Nombre" idParentComboBox="idDepartamento" />
+                        <br />
+                        <asp:Label ID="Label125" runat="server" Text="Observaciones"></asp:Label>
+                        
+                        <uc1:TextBox ID="txtObservacionesExpediente" runat="server" Height="200" 
+                                width="400" FieldName="Comentario" Apariencia="Multiline" />
+
+                            <br />
+
+                            <asp:HyperLink ID="linkMain" runat="server" 
+                                NavigateUrl="~/Registro/Expediente/wfmExpediente_List.aspx" 
+                                Visible="False">[linkMain]</asp:HyperLink>
+                        
+                            <asp:HyperLink ID="LinkMe" runat="server" 
+                                NavigateUrl="~/Registro/Expediente/wfmExpediente_Add.aspx" 
+                                Visible="False">[LinkMe]</asp:HyperLink>
+
+                    </div>                          
+</asp:Content>

@@ -1,0 +1,147 @@
+﻿Imports CrystalDecisions.CrystalReports
+Imports prjDatos
+Imports CrystalDecisions.Shared
+
+Public Class WebForm3
+    Inherits System.Web.UI.Page
+    Dim cFunciones As New funciones
+    Dim dtDatos As New DataTable
+    Dim id As String = ""
+#Region "Declaraciones"
+
+#End Region
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Imprimir()
+    End Sub
+    Private Sub Imprimir()
+        Dim TipoReporte As String = Session("TipoReporte")
+        If TipoReporte = "LDE" Then
+            Dim DispensasEdicto As New crDispensasEdicto
+            dtDatos = cFunciones.Filldatatable("pDispensaEdicto_List", dtParametrosVacio)
+            DispensasEdicto.SetDataSource(dtDatos)
+            CrystalReportViewer1.ReportSource = DispensasEdicto
+        ElseIf TipoReporte = "DE" Then
+            If Session("id").ToString <> "" Then
+                id = Session("id")
+                dtDatos = cFunciones.Filldatatable("pDispensaEdicto_List", dtParametros)
+                Dim DispensasEdictoPresencial As New crDispensaEdictoPresencial
+                DispensasEdictoPresencial.SetDataSource(dtDatos)
+                CrystalReportViewer1.ReportSource = DispensasEdictoPresencial
+            End If
+        ElseIf TipoReporte = "DENP" Then
+            If Session("id").ToString <> "" Then
+                id = Session("id")
+                dtDatos = cFunciones.Filldatatable("pDispensaEdicto_List", dtParametros)
+                Dim DispensasEdictoNoPresencial As New crDispensaEdictoNoPresencial
+                DispensasEdictoNoPresencial.SetDataSource(dtDatos)
+                CrystalReportViewer1.ReportSource = DispensasEdictoNoPresencial
+            End If
+        ElseIf TipoReporte = "E" Or TipoReporte = "e" Then
+            If Session("id").ToString <> "" Then
+                id = Session("id")
+                dtDatos = cFunciones.Filldatatable("pConstancia_Report", dtParametros(TipoReporte))
+                Dim ConstanciaReporte As New crConstanciaExtranjeria
+                ConstanciaReporte.SetDataSource(dtDatos)
+                CrystalReportViewer1.ReportSource = ConstanciaReporte
+            End If
+        ElseIf TipoReporte = "PJ" Then
+            If Session("id").ToString <> "" Then
+                id = Session("id")
+                dtDatos = cFunciones.Filldatatable("pConstancia_Report", dtParametros(TipoReporte))
+                Dim ConstanciaReporte As New crConstanciaPJ
+                ConstanciaReporte.SetDataSource(dtDatos)
+                CrystalReportViewer1.ReportSource = ConstanciaReporte
+            End If
+        ElseIf TipoReporte = "AUTO" Then
+            If Session("id").ToString <> "" Then
+                id = Session("id")
+                dtDatos = cFunciones.Filldatatable("pAutoAdmisionCumplido", dtParametrosAuto())
+                Dim AutoReport As New crAutoExpediente
+                AutoReport.SetDataSource(dtDatos)
+                Dim data = cFunciones.Filldatatable("pAutoAdmision", dtParametrosAuto())
+                Dim szBloque1 = ""
+                Dim szBloque2 = ""
+                Dim nBloque1Count = 0
+                Dim nBloque2Count = 0
+                For Each row As DataRow In data.Rows
+                    If row.Item("Valor") = "1" Then
+                        nBloque1Count = nBloque1Count + 1
+                        szBloque1 = szBloque1 & " " & row.Item("Nombre") & ", "
+                    Else
+                        nBloque2Count = nBloque2Count + 1
+                        szBloque2 = szBloque2 & " " & row.Item("Nombre") & ", "
+                    End If
+                Next
+                If szBloque1.Length > 2 Then
+                    szBloque1 = szBloque1.Substring(0, szBloque1.Length - 2)
+                End If
+                If szBloque2.Length > 2 Then
+                    szBloque2 = szBloque2.Substring(0, szBloque2.Length - 2)
+                End If
+                data = cFunciones.Filldatatable("pRecibo_List", dtParametrosAuto())
+                If data.Rows.Count > 0 Then
+                    If data.Rows.Count > 1 Then
+                        szBloque1 = szBloque1 & ", Recibos de pago"
+                    Else
+                        szBloque1 = szBloque1 & ", Recibo de pago"
+                    End If
+                    Dim bPrimero = True
+                    For Each row As DataRow In data.Rows
+                        If bPrimero Then
+                            szBloque1 = szBloque1 & " N." & row.Item("NumReciboFinanzas").ToString & " por valor de " & (Double.Parse(row.Item("Valor")) * Double.Parse(row.Item("Cantidad"))).ToString
+                        Else
+                            szBloque1 = szBloque1 & ", N." & row.Item("NumReciboFinanzas").ToString & " por valor de " & (Double.Parse(row.Item("Valor")) * Double.Parse(row.Item("Cantidad"))).ToString
+                        End If
+                    Next
+                End If
+                Dim params = New ParameterFields()
+                Dim param = New ParameterField()
+                param.ParameterFieldName = "DocumentosPresentados"
+                Dim param2 = New ParameterField()
+                param2.ParameterFieldName = "DocumentosFaltantes"
+                Dim DiscreteValue = New ParameterDiscreteValue()
+                DiscreteValue.Value = szBloque1
+                param.CurrentValues.Add(DiscreteValue)
+                DiscreteValue = New ParameterDiscreteValue()
+                DiscreteValue.Value = szBloque2
+                param2.CurrentValues.Add(DiscreteValue)
+                params.Add(param)
+                params.Add(param2)
+                AutoReport.SetParameterValue("DocumentosPresentados", szBloque1)
+                AutoReport.SetParameterValue("DocumentosFaltantes", szBloque2)
+                CrystalReportViewer1.ReportSource = AutoReport
+            End If
+        End If
+        CrystalReportViewer1.DataBind()
+    End Sub
+    Private Function dtParametros() As DataTable
+        Try
+            dtParametros = cFunciones.dtDatos.Clone
+            dtParametros.Rows.Add("id", id)
+        Catch ex As Exception
+        End Try
+    End Function
+
+    Private Function dtParametros(ByVal szServicio As String) As DataTable
+        Try
+            dtParametros = cFunciones.dtDatos.Clone
+            dtParametros.Rows.Add("ConstanciaId", id)
+        Catch ex As Exception
+        End Try
+    End Function
+    Private Function dtParametrosAuto() As DataTable
+        Try
+            dtParametrosAuto = cFunciones.dtDatos.Clone
+            dtParametrosAuto.Rows.Add("IdExpediente", id)
+        Catch ex As Exception
+        End Try
+    End Function
+    Private Function dtParametrosVacio() As DataTable
+        Try
+            dtParametrosVacio = cFunciones.dtDatos.Clone
+            dtParametrosVacio.Rows.Add("id", "")
+        Catch ex As Exception
+
+        End Try
+    End Function
+End Class
